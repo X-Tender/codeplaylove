@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against url",
+            "webRoot": "${workspaceRoot}/src/js",
+            "urlFilter":"192.168.*.*:*",
+            "disableNetworkCache":true,
+            "timeout":20000
+        }
+    ]
+}
