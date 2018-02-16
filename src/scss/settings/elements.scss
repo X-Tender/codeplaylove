@@ -1,0 +1,120 @@
+/*================================
+=            elements            =
+================================*/
+
+/*----------  GLOBALS  ----------*/
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body,
+html {
+	margin: 0;
+	padding: 0;
+	cursor: default;
+	color: $mainTextColor;
+	width: 100%;
+	font-family: 'Source Sans Pro', sans-serif;
+	height: 100%;
+}
+
+body {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
+	background-color: $mainBackgroundColor;
+}
+
+main {
+	z-index: 0;
+}
+
+address {
+	font-style: normal;
+}
+
+ul,
+ol {
+	list-style-type: none;
+}
+
+button {
+	&[disabled] {
+		pointer-events: none;
+	}
+
+	&:not([disabled]) {
+		cursor: pointer;
+	}
+
+	-webkit-tap-highlight-color: transparent;
+}
+
+input {
+	display: block;
+}
+
+img {
+	display: block;
+}
+
+/*----------  GLOBAL CLASSES  ----------*/
+
+// hidden
+.hidden {
+	display: none !important;
+}
+
+// clearfix
+.clearfix {
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+/*----------  TYPOSTANDARDS  ----------*/
+
+:--headlines {
+	margin: 0;
+	font-family: 'Raleway', sans-serif;
+	text-transform: uppercase;
+}
+
+p,
+li {
+	font-weight: 400;
+}
+
+p {
+	font-size: 20px;
+}
+p ~ p {
+	margin-top: 10px;
+}
+
+a {
+	position: relative;
+	color: inherit;
+	text-decoration: none;
+
+	&.hasUnderline:not(:hover) {
+		@include better-text-underline($mainTextColor, $mainBackgroundColor);
+	}
+}
+
+.app-root {
+	display: grid;
+	grid-template-rows: 1fr auto;
+	height: 100%;
+}
+
+/*=====  End of elements  ======*/

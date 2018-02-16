@@ -1,0 +1,44 @@
+.floppy {
+	position: relative;
+	transition: transform 250ms ease;
+
+	&:after {
+		content: '';
+		width: calc(100% - 50px);
+		height: calc(100% - 45px);
+		//background-color: rgba(#29465f, 0.51);
+		box-shadow: 0 5px 15px 15px rgba(#29465f, 0.51);
+		border-radius: 3%;
+		display: block;
+		left: 25px;
+		top: 25px;
+		position: absolute;
+		z-index: 0;
+	}
+
+	&:hover {
+		transform: scale(1.1);
+		z-index: 10;
+	}
+
+	&__disc {
+		object-fit: contain;
+		position: relative;
+		z-index: 1;
+	}
+	&__cover {
+		z-index: 2;
+		object-fit: cover;
+		position: absolute;
+		width: 72.5%;
+		height: 52.5%;
+		top: 43.2%;
+		left: 13.8%;
+		border-radius: 3%;
+	}
+}
+
+.floppy-container {
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-gap: 30px;
+}

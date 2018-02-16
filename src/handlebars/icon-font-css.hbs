@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "{{ fontName }}";
+    src: {{{ src }}};
+}
+
+.slim-icon {
+    line-height: 1;
+}
+
+.slim-icon:before {
+    font-family: {{fontName}} !important;
+    font-style: normal;
+    font-weight: normal !important;
+    margin-right: 5px;
+    vertical-align: top;
+}
+
+.slim-icon__text {
+    vertical-align: baseline;
+}
+
+{{# each codepoints }}
+.slim-icon--{{ @key }}:before {
+    content: "\\{{ this }}";
+}
+{{/ each }}

@@ -1,0 +1,182 @@
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
+
+.logo {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	white-space: nowrap;
+	user-select: none;
+
+	&-code {
+		$scale: 0.5;
+		position: absolute;
+		left: 0;
+		top: 0;
+		color: $codeColor;
+		font-family: 'Monoid', sans;
+		font-size: 95px;
+		width: 800px;
+
+		transform: perspective(600px) scale3d(0.5, 0.5, 0.5) translate3d(-50%, -50%, 0) rotateX(30deg) rotateY(20deg) rotateZ(-20deg);
+		$tx: calc(-50% / $scale);
+		$ty: calc(-50% / $scale);
+
+		$tx: calc($tx + calc($tx *0.5));
+		transform: perspective(600px) scale3d($scale, $scale, $scale) translate3d($tx, $ty, 0) rotateX(30deg) rotateY(20deg) rotateZ(-20deg);
+		transform: translate3d(-50%, -50%, 0);
+
+		&__list {
+			border-left: 10px solid hsl(202, 12%, 27%);
+			counter-reset: item 21;
+			position: relative;
+			transform: perspective(1000px) scale3d(0.5, 0.5, 0.5) translate3d(-50%, 0, 0) rotateX(-10deg) rotateY(50deg) rotateZ(0deg);
+
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				right: calc(100% + 10px);
+				padding: 10px 40px 10px 10px;
+				width: 180px;
+				height: 100%;
+				top: 0;
+				background-color: #153043;
+			}
+		}
+
+		&__line {
+			padding: 10px 200px 10px 10px;
+			position: relative;
+			background: linear-gradient(to right, rgba(#18354a, 1) 0%, rgba(#18354a, 1) 60%, rgba(#18354a, 0) 100%);
+
+			&.isHighlighted {
+				//background-color: #1d4563;
+				background: linear-gradient(to right, rgba(#214d6e, 1) 0%, rgba(#214d6e, 1) 60%, rgba(#214d6e, 0) 100%);
+				//outline: 10px solid #214d6e;
+				//outline-offset: -10px;
+
+				&:after {
+					content: '';
+					position: absolute;
+					size: calc(100% - 20px);
+					left: 10px;
+					top: 10px;
+					background: linear-gradient(to right, rgba(#1d4563, 1) 0%, rgba(#1d4563, 1) 60%, rgba(#1d4563, 0) 100%);
+				}
+			}
+
+			&:before {
+				content: counter(item);
+				display: block;
+				position: absolute;
+				right: calc(100% + 10px);
+				top: 0;
+				width: 180px;
+				padding: 10px 40px 10px 10px;
+				counter-increment: item;
+				color: #a5a6a6;
+				background-color: #153043;
+			}
+		}
+
+		&__input {
+			position: relative;
+			font-size: 95px;
+			z-index: 2;
+		}
+
+		&__cursor {
+			display: inline-block;
+			margin-left: 10px;
+			top: 10px;
+			position: absolute;
+			width: 10px;
+			height: calc(100% - 20px);
+			background-color: $primaryColor;
+			animation: blink 1s steps(5, start) infinite;
+		}
+	}
+
+	&-play {
+		position: absolute;
+		perspective: 300px;
+		width: 490px;
+		height: 150px;
+		transform: translate3d(-50%, -50%, 0);
+
+		&__list {
+			transform-style: preserve-3d;
+			transform: rotateX(-20deg) rotateY(-20deg) rotateZ(0deg);
+		}
+	}
+
+	&-love {
+		color: $loveColor;
+		position: absolute;
+		font-size: 200px;
+		font-family: Pacifico, cursiv;
+		left: 0;
+		top: 0;
+		transform: translate3d(-50%, -50%, 0);
+
+		$shadow: -1px -1px color($loveColor tint(70));
+		$shadow: $shadow, 1px 1px color($loveColor shade(50));
+		@for $i from 2 to 10 {
+			$shadow: $shadow, 0 calc($(i) * 1px) color($loveColor shade(calc(calc($(i) * 3) + 30)));
+		}
+		text-shadow: $shadow;
+		//color: color($loveColor blackness(10%));
+	}
+}
+
+.cube {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	transform-style: preserve-3d;
+	transition: transform 1s;
+	left: 0;
+	top: 0;
+
+	figure {
+		margin: 0;
+		display: block;
+		position: absolute;
+	}
+
+	.front {
+		background-color: #2e84d1;
+	}
+	.back {
+		background-color: hsl(208, 64%, 50%);
+	}
+	.right {
+		background-color: hsl(208, 64%, 40%);
+	}
+	.left {
+		background-color: hsl(208, 64%, 60%);
+	}
+	.top {
+		background-color: hsl(208, 64%, 70%);
+	}
+	.bottom {
+		background-color: hsl(208, 64%, 30%);
+	}
+}
+
+.char {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform-style: preserve-3d;
+
+	&__grid-line {
+		position: absolute;
+		transform-style: preserve-3d;
+	}
+}

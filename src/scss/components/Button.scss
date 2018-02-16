@@ -1,0 +1,52 @@
+.button {
+	position: relative;
+	display: inline-block;
+	padding: 15px 25px;
+	border-radius: 50px;
+	text-align: center;
+	transition: background-color $defaultTransitionDuration ease, color $defaultTransitionDuration ease;
+
+	&--primary {
+		background-color: $primaryColor;
+		border-color: $primaryColor;
+		color: $mainBackgroundColor;
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			size: 100%;
+			border-radius: 50px;
+			left: 0;
+			top: 0;
+			z-index: -1;
+			box-shadow: 0 5px 30px $primaryColor;
+			opacity: 0;
+			transition: opacity $defaultTransitionDuration ease;
+			will-change: opacity;
+		}
+
+		&:hover:after {
+			opacity: 1;
+		}
+	}
+
+	&--ghost {
+		background-color: transparent;
+		border-width: 2px;
+		border-style: solid;
+		color: $mainTextColor;
+
+		&:hover {
+			background-color: $primaryColor;
+			color: $mainBackgroundColor;
+		}
+	}
+
+	&--full-width-sm {
+		display: block;
+		@include sm {
+			display: inline-block;
+		}
+	}
+}

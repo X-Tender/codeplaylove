@@ -1,0 +1,40 @@
+/*=====================================
+=            media-queries            =
+=====================================*/
+
+/* xtra small screens */
+@mixin xs {
+	@media (min-width: 468px) {
+		@content;
+	}
+}
+
+/* small screens */
+@mixin sm {
+	@media (min-width: 768px) {
+		@content;
+	}
+}
+
+/* between small & medium screens */
+@mixin sm-md {
+	@media (min-width: 768px) and (max-width: 991px) {
+		@content;
+	}
+}
+
+/* medium screens */
+@mixin md {
+	@media (min-width: 992px) {
+		@content;
+	}
+}
+
+/* large screens */
+@mixin lg {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
+
+/*=====  End of media-queries  ======*/

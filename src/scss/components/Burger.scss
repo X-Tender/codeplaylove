@@ -1,0 +1,68 @@
+.burger {
+	position: fixed;
+	left: 100%;
+	top: 0px;
+	z-index: 1;
+	border: none;
+	size: 50px;
+	display: flex;
+	align-items: center;
+	background-color: white;
+	border-radius: $globalBorderRadius;
+	border-top-right-radius: initial;
+	border-top-left-radius: initial;
+	border-bottom-left-radius: initial;
+	box-shadow: 2px 0 10px rgba(#000, 0.5);
+	outline: none;
+
+	@include sm {
+		top: 40px;
+		border-top-right-radius: $globalBorderRadius;
+	}
+
+	&__line {
+		background-color: $primaryColor;
+		width: 50%;
+		height: 4px;
+		left: 25%;
+		position: absolute;
+
+		&--top {
+			bottom: 60%;
+			transition: bottom $defaultTransitionDuration ease;
+
+			^^&.isOpen & {
+				bottom: calc(50% - 2px);
+			}
+
+			^^&:not(.isOpen):hover & {
+				bottom: calc(60% +2px);
+			}
+
+			^^&.isOpen:hover & {
+				bottom: calc(60% -2px);
+			}
+		}
+
+		&--center {
+			top: calc(50% - 2px);
+		}
+
+		&--bottom {
+			top: 60%;
+			transition: top $defaultTransitionDuration ease;
+
+			^^&.isOpen & {
+				top: calc(50% - 2px);
+			}
+
+			^^&:not(.isOpen):hover & {
+				top: calc(60% +2px);
+			}
+
+			^^&.isOpen:hover & {
+				top: calc(60% -2px);
+			}
+		}
+	}
+}

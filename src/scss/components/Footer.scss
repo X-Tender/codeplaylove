@@ -1,0 +1,8 @@
+.footer {
+	margin-top: 0px;
+	padding-bottom: 25px;
+
+	@include sm {
+		margin-top: 75px;
+	}
+}

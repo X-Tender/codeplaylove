@@ -1,0 +1,15 @@
+.hero {
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	grid-column: page;
+	background: url('../video/poster.jpg');
+
+	&__video {
+		background: url('../video/poster.jpg');
+		background-size: cover;
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+}

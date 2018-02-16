@@ -1,0 +1,58 @@
+.game-content {
+	grid-column: 1 / -1;
+	display: flex;
+	flex-direction: column-reverse;
+
+	@include md {
+		display: block;
+	}
+
+	&__text {
+		margin-bottom: 25px;
+		@include sm-md {
+			column-count: 2;
+		}
+		@include md {
+			margin-bottom: initial;
+		}
+	}
+
+	&__video {
+		@include md {
+			float: right;
+			width: 50%;
+			margin: 0 0 15px 25px;
+		}
+	}
+}
+
+.images-list {
+	display: grid;
+	grid-column: 1 / -1;
+	width: 100%;
+	grid-row-gap: 25px;
+	align-content: center;
+	grid-template-columns: 1fr;
+
+	@include sm {
+		grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+		grid-row-gap: initial;
+	}
+
+	@include md {
+		grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+	}
+
+	@include lg {
+		grid-template-columns: repeat(auto-fit, minmax(33.3333%, 1fr));
+
+		&--4 {
+			grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+		}
+	}
+
+	&__img {
+		width: 100%;
+		height: auto;
+	}
+}

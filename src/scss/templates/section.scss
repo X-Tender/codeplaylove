@@ -1,0 +1,17 @@
+.section {
+	display: grid;
+	grid-template-columns: [page-start] 1fr [content-start] repeat(12, minmax(0, 100px)) [content-end] 1fr [page-end];
+
+	padding-left: 25px;
+	padding-right: 25px;
+
+	margin-top: 50px;
+	margin-bottom: 50px;
+
+	&.is-fullwidth {
+		@include sm {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}

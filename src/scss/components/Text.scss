@@ -1,0 +1,10 @@
+.text {
+	grid-column: 1 / -1;
+
+	&--two-columns {
+		@include md {
+			column-count: 2;
+			column-gap: 25px;
+		}
+	}
+}

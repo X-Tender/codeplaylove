@@ -1,0 +1,57 @@
+/*============================
+=            grid            =
+============================*/
+
+/**
+
+	BASED ON:
+	postcss-mesh: https://github.com/SlimMarten/postcss-mesh
+
+	@mesh-grid-NAME{
+		displayType: inline-block;
+		gutter: 30px;
+		columnAlign: 'tbd';
+		columnCount: 12;
+		columnJustify: 'tbd';
+		containerWidth: fluid;
+		compileDefaultClasses: true;
+		mobileFirst: true;
+
+		@mesh-viewport-VIEWPORTNAME {
+			viewport: 1200px;
+			containerWidth: 1170px;
+		}
+
+		...
+	}
+
+*/
+
+@mesh-grid-slimGrid{
+	displayType: inline-block;
+	gutter: 30px;
+	columnAlign: 'tbd';
+	columnCount: 12;
+	columnJustify: 'tbd';
+	containerWidth: fluid;
+	compileDefaultClasses: true;
+	mobileFirst: true;
+
+	@mesh-viewport-lg {
+		viewport: 1200px;
+		containerWidth: 1170px;
+	}
+
+	@mesh-viewport-md {
+		viewport: 992px;
+		containerWidth: 970px;
+	}
+
+	@mesh-viewport-sm {
+		viewport: 768px;
+		containerWidth: 750px;
+	}
+}
+
+
+/*=====  End of grid  ======*/

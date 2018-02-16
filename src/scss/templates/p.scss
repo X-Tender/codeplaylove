@@ -1,0 +1,5 @@
+.paragraph {
+	a:not(:hover) {
+		@include better-text-underline($mutedTextColor, $mainBackgroundColor);
+	}
+}
