@@ -1,0 +1,15 @@
+{
+	"pretty" : true,
+	"plugins": [
+		{ "cleanupIDs": true },
+		{ "collapseGroups": true },
+		{ "removeTitle": true },
+		{ "convertShapeToPath": true },
+		{ "removeComments": true },
+		{ "removeDoctype": true },
+		{ "removeRasterImages": true },
+		{ "removeStyleElement": true },
+		{ "removeUnusedNS": true },
+		{ "sortAttrs": true }
+	]
+}
