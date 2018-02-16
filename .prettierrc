@@ -1,0 +1,26 @@
+{
+	"printWidth": 100,
+	"tabWidth": 2,
+	"useTabs": true,
+	"singleQuote": true,
+	"trailingComma": "es5",
+	"bracketSpacing": true,
+	"jsxBracketSameLine": false,
+	"semi": true,
+	"parser": "babylon",
+	"overrides": [
+		{
+			"files": [".prettierrc", ".eslintrc"],
+			"options": {
+				"parser": "json"
+			}
+		},
+		{
+			"files": ["*.scss"],
+			"options": {
+				"parser": "postcss",
+				"printWidth": 900,
+			}
+		}
+	]
+}
