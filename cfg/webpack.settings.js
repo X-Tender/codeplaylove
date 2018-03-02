@@ -2,7 +2,7 @@
 const fs = require('fs');
 
 const settings = {
-	devHost: 'http://www.cpl.de',
+	devHost: 'http://www.codeplaylove.io',
 	devPath: '',
 	entry: {
 		bundle: ['react-hot-loader/patch', 'babel-polyfill', './Index.jsx'],
