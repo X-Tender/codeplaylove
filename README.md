@@ -5,7 +5,7 @@ This is my porfolio I created to tinker around with various web technologies and
 ----------
 **Frontend technologies used:**
  - [ReactJS](https://reactjs.org/)
- - [postCSS](https://reactjs.org/)
+ - [postCSS](http://postcss.org/)
 
 **Backend technologies used**
 
