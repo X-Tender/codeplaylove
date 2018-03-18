@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const webpackSettings = require('./webpack.settings.js');
+const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 
 const { entry, rules } = webpackSettings;
 
@@ -22,9 +23,6 @@ const plugins = [
 			warnings: false,
 			drop_console: true,
 			screw_ie8: true,
-			pure_getters: true,
-			unsafe: true,
-			unsafe_comps: true,
 		},
 		output: {
 			comments: false,
@@ -32,6 +30,8 @@ const plugins = [
 		mangle: true,
 		exclude: [/\.min\.js$/gi],
 	}),
+
+	new WebpackCleanupPlugin(),
 ];
 
 module.exports = {
@@ -49,6 +49,7 @@ module.exports = {
 		path: path.join(__dirname, '..', 'public', 'assets', 'js'),
 		publicPath: '/assets/js/',
 		filename: '[name].js',
+		chunkFilename: '[name].[chunkhash].js',
 	},
 
 	plugins,
