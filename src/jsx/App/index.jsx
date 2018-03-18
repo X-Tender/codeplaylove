@@ -4,11 +4,8 @@ import { Route } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import store, { history } from './store';
 
-import Home from 'Routes/Home';
-import About from 'Routes/About';
-import Feeds from 'Routes/Feeds';
-import Games from 'Routes/Games';
-import Imprint from 'Routes/Imprint';
+import DynamicRoute from 'Routes/DynamicRoute';
+
 import CodenameGordon from 'Routes/Games/CodenameGordon';
 import ColdIron from 'Routes/Games/ColdIron';
 import IrishSushiSmuggler from 'Routes/Games/IrishSushiSmuggler';
@@ -19,6 +16,36 @@ import ConelMan from 'Routes/Games/ConelMan';
 
 import Footer from 'Components/Footer';
 import Navigation from 'Components/Navigation';
+
+const Home = props => (
+	<DynamicRoute load={() => import('./../Routes/Home')}>
+		{Component => (Component === null ? null : <Component {...props} />)}
+	</DynamicRoute>
+);
+
+const About = props => (
+	<DynamicRoute load={() => import('./../Routes/About')}>
+		{Component => (Component === null ? null : <Component {...props} />)}
+	</DynamicRoute>
+);
+
+const Feeds = props => (
+	<DynamicRoute load={() => import('./../Routes/Feeds')}>
+		{Component => (Component === null ? null : <Component {...props} />)}
+	</DynamicRoute>
+);
+
+const Games = props => (
+	<DynamicRoute load={() => import('./../Routes/Games')}>
+		{Component => (Component === null ? null : <Component {...props} />)}
+	</DynamicRoute>
+);
+
+const Imprint = props => (
+	<DynamicRoute load={() => import('./../Routes/Imprint')}>
+		{Component => (Component === null ? null : <Component {...props} />)}
+	</DynamicRoute>
+);
 
 const App = () => (
 	<Provider store={store}>
