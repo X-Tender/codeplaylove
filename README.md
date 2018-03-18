@@ -7,6 +7,10 @@ This is my porfolio I created to tinker around with various web technologies and
  - [ReactJS](https://reactjs.org/)
  - [postCSS](http://postcss.org/)
 
+**ReactJS technics included**
+- PropTypes
+- Route based code splitting
+
 **Backend technologies used**
 
  - [slim Framework](https://www.slimframework.com/)
