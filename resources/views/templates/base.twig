@@ -30,15 +30,45 @@
 
 		<link rel="icon" href="favicon.ico?v1">
 
-		<link rel="stylesheet" href="assets/css/vendor/fontawesome-all.min.css" >
-		<link rel="stylesheet" href="assets/css/main.css?cb={{ random(10000) }}" >
+		<style>
+			body{
+				display:none;
+			}
+    </style>
+
 		{{ csrf.meta | raw }}
 	</head>
 	<body>
 		{% block content %}{% endblock %}
 
 		{% block footer_script %}
-			<script src="assets/js/bundle.js?cb={{ random(10000) }}"></script>
+			<noscript id="main-style">
+				<link rel="stylesheet" type="text/css" href="assets/css/main.css?cb={{ random(10000) }}"/>
+			</noscript>
+			<noscript id="fontAwesome-style">
+				<link rel="stylesheet" type="text/css" href="assets/css/vendor/fontawesome-all.min.css"/>
+			</noscript>
+			<script>
+				var loadDeferredStyles = function() {
+					var addStylesNode = document.getElementById("main-style");
+					var replacement = document.createElement("div");
+					replacement.innerHTML = addStylesNode.textContent;
+					document.body.appendChild(replacement)
+					addStylesNode.parentElement.removeChild(addStylesNode);
+
+					addStylesNode = document.getElementById("fontAwesome-style");
+					replacement = document.createElement("div");
+					replacement.innerHTML = addStylesNode.textContent;
+					document.body.appendChild(replacement)
+					addStylesNode.parentElement.removeChild(addStylesNode);
+				};
+				var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+						window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+				if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+				else window.addEventListener('load', loadDeferredStyles);
+			</script>
+
+			<script async src="assets/js/bundle.js?cb={{ random(10000) }}"></script>
 		{% endblock %}
 	</body>
 </html>
