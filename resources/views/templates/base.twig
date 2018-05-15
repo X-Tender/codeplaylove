@@ -23,33 +23,22 @@
 		<meta property="og:type" content="website">
 		<meta property="og:title" content="Code Play Love">
 		<meta property="og:image" content="https://codeplaylove.de/assets/og/image.png">
-		<meta property="og:description" content="Portfolio from Paul Kamma. Web- and Game Developer from Germany - Hannover">
+		<meta property="og:description" content="Portfolio of Paul Kamma. Web- and Game Developer from Germany - Hannover">
 		<meta property="og:site_name" content="Code Play Love">
 		<meta property="og:locale" content="en_US">
 		<meta property="article:author" content="Paul Kamma">
 
 		<link rel="icon" href="favicon.ico?v1">
 
-		<link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Raleway:700,900|Source+Sans+Pro:300,400,700" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/vendor/fontawesome-all.min.css" >
 		<link rel="stylesheet" href="assets/css/main.css?cb={{ random(10000) }}" >
 		{{ csrf.meta | raw }}
-
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113453781-1"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
-			gtag('config', 'UA-113453781-1', { 'anonymize_ip': true });
-		</script>
-
 	</head>
 	<body>
 		{% block content %}{% endblock %}
 
 		{% block footer_script %}
-			<script src="assets/js/bundle.js"></script>
+			<script src="assets/js/bundle.js?cb={{ random(10000) }}"></script>
 		{% endblock %}
 	</body>
 </html>
