@@ -13,12 +13,6 @@ export default (state = initialState, action) => {
 			return { ...state, open: !state.open };
 		case LOCATION_CHANGE: {
 			window.scrollTo(0, 0);
-			const { pathname } = payload;
-
-			gtag('config', 'UA-113453781-1', {
-				page_path: pathname,
-			});
-
 			return { ...state, open: false };
 		}
 		default:
