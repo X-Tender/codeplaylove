@@ -25,3 +25,5 @@ yarn.lock
 .DS_Store
 
 .vscode/sftp.json
+.vscode/ftp-kr.json
+.vscode/settings.json
