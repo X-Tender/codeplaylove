@@ -12,7 +12,7 @@
     "---------": "---------",
     "// Process CSS": "",
     "style": "npm-run-all icon-font style:css",
-    "style:css": "postcss 'src/scss/main.css' --watch --output 'public/assets/css/main.css' --config cfg/postcss.config.js",
+    "style:css": "postcss 'src/scss/*.css' --dir 'public/assets/css/' --watch --config cfg/postcss.config.js",
     "// Run browserSync with webpack": "",
     "code": "node .",
     "// Run browserSync with webpack - But don't open browser": "",
