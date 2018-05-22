@@ -45,6 +45,11 @@ ol {
 	list-style-type: none;
 }
 
+.bullet-list {
+	list-style-type: disc;
+	margin-left: 22px;
+}
+
 button {
 	&[disabled] {
 		pointer-events: none;
@@ -100,6 +105,9 @@ p {
 }
 p ~ p {
 	margin-top: 10px;
+}
+p ~ :--headlines {
+	margin-top: 25px;
 }
 
 a {
