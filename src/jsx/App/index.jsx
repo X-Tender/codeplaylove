@@ -47,6 +47,12 @@ const Imprint = props => (
 	</DynamicRoute>
 );
 
+const Privacy = props => (
+	<DynamicRoute load={() => import('./../Routes/Privacy')}>
+		{Component => (Component === null ? null : <Component {...props} />)}
+	</DynamicRoute>
+);
+
 const App = () => (
 	<Provider store={store}>
 		<ConnectedRouter history={history}>
@@ -58,6 +64,7 @@ const App = () => (
 					<Route exact path="/about" component={About} />
 					<Route exact path="/games" component={Games} />
 					<Route exact path="/imprint" component={Imprint} />
+					<Route exact path="/privacy" component={Privacy} />
 					<Route exact path="/games/codename-gordon" component={CodenameGordon} />
 					<Route exact path="/games/cold-iron" component={ColdIron} />
 					<Route exact path="/games/irish-sushi-smuggler" component={IrishSushiSmuggler} />

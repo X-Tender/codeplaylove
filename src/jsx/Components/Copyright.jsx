@@ -6,6 +6,9 @@ const Copyright = () => (
 		© {new Date().getFullYear()} – <span className="copyright__name">Paul Kamma</span> –{' '}
 		<Link className="hasUnderline" to="/imprint">
 			Imprint
+		</Link>{' '}
+		<Link className="hasUnderline" to="/privacy">
+			Privacy policy
 		</Link>
 	</p>
 );
