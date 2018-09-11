@@ -4,10 +4,11 @@
         "slim/twig-view": "^2.1",
         "hassankhan/config": "^0.10",
         "slim/http-cache": "^0.3.0",
-        "twig/twig": "1.31.0",
         "twig/extensions": "^1.3",
         "php-di/slim-bridge": "1.0.2",
-        "kint-php/kint": "^2.1"
+        "kint-php/kint": "^2.1",
+        "twig/twig": "^2.4",
+        "directus/sdk": "1.1.1"
     },
     "config": {
         "vendor-dir": "vendor_modules"
@@ -16,5 +17,10 @@
         "psr-4": {
             "App\\": "app"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "repositories": [{
+        "type": "git",
+        "url": "https://github.com/wellingguzman/zend-db"
+    }]
 }
