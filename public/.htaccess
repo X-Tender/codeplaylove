@@ -51,7 +51,7 @@ RewriteBase /
 RewriteRule .* - [env=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
 # no URL rewrite for Assets
-RewriteRule ^(assets)($|/) - [L]
+RewriteRule ^(assets|uploads)($|/) - [L]
 
 # force www
 RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
