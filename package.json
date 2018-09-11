@@ -47,6 +47,7 @@
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.1.0",
+    "htmr": "^0.7.0",
     "icon-font-generator": "^1.1.1",
     "micro-emitter": "^1.1.15",
     "normalize.css": "^7.0.0",
