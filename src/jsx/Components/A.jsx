@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const A = ({ href, target, children, title }) => {
-	return (
+const A = ({ href, target, children, title }) => (
 		<a
 			href={href}
 			target={target}
@@ -12,13 +11,12 @@ const A = ({ href, target, children, title }) => {
 			{children}
 		</a>
 	);
-};
 
 A.propTypes = {
 	href: PropTypes.string.isRequired,
 	target: PropTypes.string,
 	title: PropTypes.string,
-	children: PropTypes.string.isRequired,
+	children: PropTypes.node.isRequired,
 };
 
 A.defaultProps = {
