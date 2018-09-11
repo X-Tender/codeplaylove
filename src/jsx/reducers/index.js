@@ -5,6 +5,7 @@ import menu from './menu';
 import skills from './skills';
 import gears from './gears';
 import tools from './tools';
+import introduction from './introduction';
 
 export default combineReducers({
 	routing: routerReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
 	skills,
 	gears,
 	tools,
+	introduction,
 });
