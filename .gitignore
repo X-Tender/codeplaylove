@@ -11,6 +11,7 @@ resources/socialTemp
 public/craftstudio/*
 public/assets/js/*
 !public/assets/js/vendor/*
+public/uploads/*
 
 public/assets/css/*.css
 public/assets/fonts/slim-icon-font/*
