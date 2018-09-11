@@ -12,8 +12,14 @@ $app->get("/dev/instagram/{code}", ["App\Controllers\APIController", "getInstagr
 
 /* API ROUTES */
 $app->group("/api", function () {
-  $this->get("/getData", ["App\Controllers\APIController", "getData"])->setName("getData");
+  $this->get("/getData", ["App\Controllers\APIController", "getData"])
+    ->setName("getData");
+  $this->get("/getIntroduction", ["App\Controllers\APIController", "getIntroduction"])
+    ->setName("getIntroduction");
+  $this->get("/getCards", ["App\Controllers\APIController", "getCards"])
+    ->setName("getCards");
 });
 
 /* INDEX ROUTE */
-$app->get("/[{rest:.*}]", ["App\Controllers\IndexController", "index"])->setName("index");
+$app->get("/[{rest:.*}]", ["App\Controllers\IndexController", "index"])
+  ->setName("index");

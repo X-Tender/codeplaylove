@@ -11,6 +11,9 @@ use Slim\HttpCache\CacheProvider;
 
 use App\Errors\NotFoundHandler;
 
+use Directus\SDK\ClientFactory;
+use Directus\SDK\ClientRemote;
+
 return [
   "router" => get(Slim\Router::class),
 
@@ -39,6 +42,14 @@ return [
   "settings.displayErrorDetails" => function (ContainerInterface $c) {
     $appConf = $c->get(Config::class)->get("app");
     return $appConf["phpDebugMode"];
+  },
+
+  ClientRemote::class => function (ContainerInterface $c) {
+    $directusConf = $c->get(Config::class)->get("directus");
+
+    return ClientFactory::create($directusConf["userToken"], [
+      'base_url' => $directusConf["baseUrl"],
+    ]);
   },
 
 ];

@@ -6,6 +6,7 @@ use Noodlehaus\Config;
 use App\Utils\GetTwitterFeed;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Directus\SDK\ClientRemote;
 
 class APIController
 {
@@ -212,6 +213,43 @@ class APIController
       "error" => 0,
       "message" => "SUCCESS",
       "data" => $data,
+    ];
+
+    return $response->withJson($responseData);
+  }
+
+  public function getIntroduction(Request $request, Response $response, ClientRemote $directus)
+  {
+    $item = $directus->getItems('introduction')->toArray();
+    $re = '/(^\/\/[\w\.\-_]+\/)(.+)/m';
+    preg_match_all($re, $item["data"][0]["image"]["data"]["url"], $matches, PREG_SET_ORDER, 0);
+    $image = array_pop($matches[0]);
+
+    $data = [
+      "head" => $item["data"][0]["head"],
+      "subhead" => $item["data"][0]["subhead"],
+      "punchline" => $item["data"][0]["punchline"],
+      "copy" => $item["data"][0]["copy"],
+      "image" => $image,
+    ];
+
+    $responseData = [
+      "error" => 0,
+      "message" => "SUCCESS",
+      "data" => $data,
+    ];
+
+    return $response->withJson($responseData);
+  }
+
+  public function getCards(Request $request, Response $response, ClientRemote $directus)
+  {
+    $items = $directus->getItems('cards')->toArray();
+
+    $responseData = [
+      "error" => 0,
+      "message" => "SUCCESS",
+      "data" => $items["data"],
     ];
 
     return $response->withJson($responseData);
