@@ -1,6 +1,8 @@
 node_modules/
 vendor_modules/
 
+directus/
+
 app/config/live.php
 app/config/development.php
 
