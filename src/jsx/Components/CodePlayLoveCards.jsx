@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { getCards } from 'reducers/cards';
 import Section from 'Semantics/Section';
+import P from 'Components/P';
+import A from 'Components/A';
+import convert from 'htmr';
 
 const CodePlayLoveCard = ({ title, children, style }) => (
 	<li className={`code-play-love-card code-play-love-card--${style}`}>
@@ -11,39 +16,41 @@ const CodePlayLoveCard = ({ title, children, style }) => (
 	</li>
 );
 
-const CodePlayLoveCards = () => (
-	<Section className="code-play-love-cards">
-		<ul className="code-play-love-cards__list">
-			<CodePlayLoveCard title="Code" style="code">
-				<p>JavaScript, PHP, SQL and C# are my weapons of choice when it comes to programming.</p>
-				<p>Theres are mostly applied for Web-Development at the front– and backend.</p>
-				<p>
-					From time to time I have to opportinuty to do some c# code in Unity3D, which is a great
-					change.
-				</p>
-			</CodePlayLoveCard>
+class CodePlayLoveCards extends PureComponent {
+	constructor(props) {
+		super(props);
 
-			<CodePlayLoveCard title="Play" style="play">
-				<p>Game-Development is still my passion which I try to follow in my spare time.</p>
-				<p>When I have the possibility I try to attend Game-Jams like the Ludum-Dare.</p>
-				<p>
-					In this case is playing games also a joy for me, mainly small games because I didn't have
-					the time anymore for titles like Fallout or GTA.
-				</p>
-			</CodePlayLoveCard>
+		if (this.props.cards.data.length === 0) this.props.getCards();
+	}
 
-			<CodePlayLoveCard title="Love" style="love">
-				<p>Beside all of these digital technologies I need some love sometimes.</p>
-				<p>
-					I get this from my family, food, watching movies or just climb up a mountain when I have
-					the opportunity when visiting my in-laws.
-				</p>
-				<p>
-					I share some of these moments at Instagram and every 'Like' is a loveletter to my soul 🤗
-				</p>
-			</CodePlayLoveCard>
-		</ul>
-	</Section>
-);
+	render() {
+		const cardsData = this.props.cards.data;
 
-export default CodePlayLoveCards;
+		const cards = cardsData.sort((a, b) => a.sort - b.sort).map(({ id, title, copy, style }) => (
+			<CodePlayLoveCard key={id} title={title} style={style}>
+				{copy &&
+					convert(copy, {
+						transform: {
+							p: P,
+							a: A,
+						},
+					})}
+			</CodePlayLoveCard>
+		));
+
+		return (
+			<Section className="code-play-love-cards">
+				<ul className="code-play-love-cards__list">{cards}</ul>
+			</Section>
+		);
+	}
+}
+
+const mapStateToProps = ({ cards }) => ({
+	cards,
+});
+
+export default connect(
+	mapStateToProps,
+	{ getCards }
+)(CodePlayLoveCards);
