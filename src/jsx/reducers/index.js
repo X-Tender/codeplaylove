@@ -7,6 +7,7 @@ import gears from './gears';
 import tools from './tools';
 import introduction from './introduction';
 import cards from './cards';
+import about from './about';
 
 export default combineReducers({
 	routing: routerReducer,
@@ -17,4 +18,5 @@ export default combineReducers({
 	tools,
 	introduction,
 	cards,
+	about,
 });

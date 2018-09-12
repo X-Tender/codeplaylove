@@ -18,11 +18,7 @@ const Imprint = () => (
 				<Header subhead="Imprint" headline="In case of groopies" />
 
 				<Text>
-					<P>
-						Paul Kamma<br />
-						Grosse Barlinge 41<br />
-						30171 Hannover
-					</P>
+					<P>Paul Kamma</P>
 					<P>
 						<A href="mailto:paul@codeplaylove.de" title="paul@codeplaylove.de">
 							contact@codeplaylove.de
