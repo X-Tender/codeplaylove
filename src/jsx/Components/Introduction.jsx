@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { getIntroduction } from 'reducers/introduction';
-import HTTP from 'Utils/HTTP';
 import Button from 'Components/Button';
 import Header from 'Components/Header';
 import P from 'Components/P';
@@ -75,4 +74,7 @@ const mapStateToProps = ({ introduction }) => ({
 	introduction,
 });
 
-export default connect(mapStateToProps, { getIntroduction })(Introduction);
+export default connect(
+	mapStateToProps,
+	{ getIntroduction }
+)(Introduction);
