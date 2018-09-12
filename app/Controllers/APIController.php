@@ -220,16 +220,16 @@ class APIController
 
   public function getIntroduction(Request $request, Response $response, ClientRemote $directus)
   {
-    $item = $directus->getItems('introduction')->toArray();
+    $item = $directus->getItem('introduction', 1);
     $re = '/(^\/\/[\w\.\-_]+\/)(.+)/m';
-    preg_match_all($re, $item["data"][0]["image"]["data"]["url"], $matches, PREG_SET_ORDER, 0);
+    preg_match_all($re, $item->image->url, $matches, PREG_SET_ORDER, 0);
     $image = array_pop($matches[0]);
 
     $data = [
-      "head" => $item["data"][0]["head"],
-      "subhead" => $item["data"][0]["subhead"],
-      "punchline" => $item["data"][0]["punchline"],
-      "copy" => $item["data"][0]["copy"],
+      "head" => $item->head,
+      "subhead" => $item->subhead,
+      "punchline" => $item->punchline,
+      "copy" => $item->copy,
       "image" => $image,
     ];
 
@@ -244,12 +244,28 @@ class APIController
 
   public function getCards(Request $request, Response $response, ClientRemote $directus)
   {
-    $items = $directus->getItems('cards')->toArray();
-
+    $items = $directus->getItems('cards')->getRawData();
     $responseData = [
       "error" => 0,
       "message" => "SUCCESS",
       "data" => $items["data"],
+    ];
+
+    return $response->withJson($responseData);
+  }
+
+  public function getAbout(Request $request, Response $response, ClientRemote $directus)
+  {
+    $about = $directus->getItem('about', 1);
+
+    $responseData = [
+      "error" => 0,
+      "message" => "SUCCESS",
+      "detailedIntroduction" => [
+        "head" => $about->head,
+        "subhead" => $about->subhead,
+        "copy" => $about->copy,
+      ],
     ];
 
     return $response->withJson($responseData);

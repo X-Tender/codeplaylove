@@ -18,6 +18,8 @@ $app->group("/api", function () {
     ->setName("getIntroduction");
   $this->get("/getCards", ["App\Controllers\APIController", "getCards"])
     ->setName("getCards");
+  $this->get("/getAbout", ["App\Controllers\APIController", "getAbout"])
+    ->setName("getAbout");
 });
 
 /* INDEX ROUTE */
