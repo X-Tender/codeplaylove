@@ -11,10 +11,12 @@ use Directus\SDK\ClientRemote;
 class APIController
 {
   protected $config;
+  protected $directus;
 
-  public function __construct(Config $config)
+  public function __construct(Config $config, ClientRemote $directus)
   {
     $this->config = $config;
+    $this->directus = $directus;
   }
 
   private function rudr_instagram_api_curl_connect($api_url)
@@ -218,9 +220,9 @@ class APIController
     return $response->withJson($responseData);
   }
 
-  public function getIntroduction(Request $request, Response $response, ClientRemote $directus)
+  public function getIntroduction(Request $request, Response $response)
   {
-    $item = $directus->getItem('introduction', 1);
+    $item = $this->directus->getItem('introduction', 1);
     $re = '/(^\/\/[\w\.\-_]+\/)(.+)/m';
     preg_match_all($re, $item->image->url, $matches, PREG_SET_ORDER, 0);
     $image = array_pop($matches[0]);
@@ -242,9 +244,9 @@ class APIController
     return $response->withJson($responseData);
   }
 
-  public function getCards(Request $request, Response $response, ClientRemote $directus)
+  public function getCards(Request $request, Response $response)
   {
-    $items = $directus->getItems('cards')->getRawData();
+    $items = $this->directus->getItems('cards')->getRawData();
     $responseData = [
       "error" => 0,
       "message" => "SUCCESS",
@@ -254,20 +256,70 @@ class APIController
     return $response->withJson($responseData);
   }
 
-  public function getAbout(Request $request, Response $response, ClientRemote $directus)
+  public function getAbout(Request $request, Response $response)
   {
-    $about = $directus->getItem('about', 1);
+    $detailedIntroduction = $this->getDetailedIntroduction();
+    $skillset = $this->getSkillset();
+    $toolset = $this->getToolset();
 
     $responseData = [
       "error" => 0,
       "message" => "SUCCESS",
-      "detailedIntroduction" => [
-        "head" => $about->head,
-        "subhead" => $about->subhead,
-        "copy" => $about->copy,
-      ],
+      "detailedIntroduction" => $detailedIntroduction,
+      "skillset" => $skillset,
+      "toolset" => $toolset,
     ];
 
     return $response->withJson($responseData);
+  }
+
+  private function getDetailedIntroduction()
+  {
+    $detailedIntroduction = $this->directus->getItem('detailed_introduction', 1);
+
+    return [
+      "head" => $detailedIntroduction->head,
+      "subhead" => $detailedIntroduction->subhead,
+      "copy" => $detailedIntroduction->copy,
+    ];
+  }
+
+  private function getSkillset()
+  {
+    $skillset = $this->directus->getItem('skillset', 1);
+    $skills = $skillset->skills->getRawData()["data"];
+
+    return [
+      "head" => $skillset->head,
+      "subhead" => $skillset->subhead,
+      "skills" => $skills,
+    ];
+  }
+
+  private function getToolset()
+  {
+    $toolset = $this->directus->getItem('toolset', 1, ["depth" => 2, "columns" => "head,subhead,toolgroups"])->toArray();
+
+    unset($toolset["meta"]);
+    unset($toolset["data"]["toolgroups"]["meta"]);
+    foreach ($toolset["data"]["toolgroups"]["data"] as $key => &$value) {
+      unset($value["toolset"]);
+      unset($value["tools"]["meta"]);
+
+      $value["tools"] = array_map(function ($d) {
+        unset($d["toolgroup"]);
+        return $d;
+      }, $value["tools"]["data"]);
+    }
+
+    $toolset["data"]["toolgroups"] = array_map(function ($d) {
+      return $d;
+    }, $toolset["data"]["toolgroups"]["data"]);
+
+    return [
+      "head" => $toolset["data"]["head"],
+      "subhead" => $toolset["data"]["subhead"],
+      "toolgroups" => $toolset["data"]["toolgroups"],
+    ];
   }
 }

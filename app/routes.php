@@ -20,6 +20,8 @@ $app->group("/api", function () {
     ->setName("getCards");
   $this->get("/getAbout", ["App\Controllers\APIController", "getAbout"])
     ->setName("getAbout");
+  $this->get("/getToolset", ["App\Controllers\APIController", "getToolset"])
+    ->setName("getToolset");
 });
 
 /* INDEX ROUTE */
