@@ -1,16 +1,21 @@
-const initialState = [
-	{ name: 'Visual Studio Code', link: '//code.visualstudio.com' },
-	{ name: 'Sequel Pro', link: '//sequelpro.com' },
-	{ name: 'MAMP Pro', link: '//mamp.info/en' },
-	{ name: 'Fenêtre', link: '//fenêt.re' },
-	{ name: 'Spotify', link: '//spotify.com' },
-	{ name: 'Chrome', link: '//chrome.com' },
-	{ name: 'iTerm2', link: '//iterm2.com' },
-];
+import { ABOUT_GET } from './about';
+
+const initialState = {
+	loaded: false,
+	toolset: {},
+};
 
 export default (state = initialState, action) => {
-	const { type, payload } = action;
+	const { type, payload: { toolset } = {} } = action;
+
 	switch (type) {
+		case ABOUT_GET:
+			return {
+				...state,
+				...{ toolset },
+				loaded: true,
+			};
+
 		default:
 			return state;
 	}
