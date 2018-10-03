@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import convert from 'htmr';
-import NoWrap from 'Components/NoWrap';
 import Header from 'Components/Header';
 import Text from 'Components/Text';
 import P from 'Components/P';
