@@ -40,6 +40,7 @@
 			z-index: 1;
 			will-change: transition;
 			user-select: none;
+			box-shadow: 0 5px 30px;
 
 			&:hover {
 				transform: scale(1.1);
@@ -69,56 +70,10 @@
 					grid-column-start: 2;
 				}
 			}
+		}
 
-			&--mysql {
-				background-color: #4479a1;
-				box-shadow: 0 5px 30px rgba(#4479a1, $glowShadowAlpha);
-			}
-
-			&--css {
-				background-color: #1471b6;
-				box-shadow: 0 5px 30px rgba(#1471b6, $glowShadowAlpha);
-			}
-
-			&--html {
-				background-color: #e44c27;
-				box-shadow: 0 5px 30px rgba(#e44c27, $glowShadowAlpha);
-			}
-
-			&--javascript {
-				background-color: #f7df1f;
-				box-shadow: 0 5px 30px rgba(#f7df1f, $glowShadowAlpha);
-			}
-
-			&--typo3 {
-				background-color: #ff8600;
-				box-shadow: 0 5px 30px rgba(#ff8600, $glowShadowAlpha);
-			}
-
-			&--php {
-				background-color: #8792c0;
-				box-shadow: 0 5px 30px rgba(#8792c0, $glowShadowAlpha);
-			}
-
-			&--flash {
-				background-color: #cd2027;
-				box-shadow: 0 5px 30px rgba(#cd2027, $glowShadowAlpha);
-			}
-
-			&--unity3d {
-				background-color: #232d3a;
-				box-shadow: 0 5px 30px rgba(#232d3a, $glowShadowAlpha);
-			}
-
-			&--react {
-				background-color: #00d8ff;
-				box-shadow: 0 5px 30px rgba(#00d8ff, $glowShadowAlpha);
-			}
-
-			&--teamwork {
-				background-color: #21de27;
-				box-shadow: 0 5px 30px rgba(#21de27, $glowShadowAlpha);
-			}
+		&-item-label {
+			color: white;
 		}
 	}
 }

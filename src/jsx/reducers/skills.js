@@ -1,19 +1,21 @@
-const initialState = [
-	'HTML',
-	'CSS',
-	'Javascript',
-	'PHP',
-	'MySQL',
-	'TYPO3',
-	'Flash',
-	'Unity3D',
-	'React',
-	'Teamwork',
-];
+import { ABOUT_GET } from './about';
+
+const initialState = {
+	loaded: false,
+	skillset: {},
+};
 
 export default (state = initialState, action) => {
-	const { type, payload } = action;
+	const { type, payload: { skillset } = {} } = action;
+
 	switch (type) {
+		case ABOUT_GET:
+			return {
+				...state,
+				...{ skillset },
+				loaded: true,
+			};
+
 		default:
 			return state;
 	}
