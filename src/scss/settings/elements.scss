@@ -100,10 +100,13 @@ li {
 	font-weight: 400;
 }
 
-p {
+p,
+ul,
+ol {
 	font-size: 20px;
 }
-p ~ p {
+p ~ p,
+p ~ ul {
 	margin-top: 10px;
 }
 p ~ :--headlines {
