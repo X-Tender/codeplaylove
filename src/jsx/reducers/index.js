@@ -8,6 +8,7 @@ import tools from './tools';
 import introduction from './introduction';
 import cards from './cards';
 import about from './about';
+import detailedIntroduction from './detailedIntroduction';
 
 export default combineReducers({
 	routing: routerReducer,
@@ -19,4 +20,5 @@ export default combineReducers({
 	introduction,
 	cards,
 	about,
+	detailedIntroduction,
 });

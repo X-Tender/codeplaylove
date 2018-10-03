@@ -10,7 +10,9 @@ import Article from 'Semantics/Article';
 
 class DetailedIntroduction extends PureComponent {
 	render() {
-		const { subhead, head, copy } = this.props.data;
+		const { loaded, subhead, head, copy } = this.props.data;
+		if (!loaded) return null;
+
 		return (
 			<Section>
 				<Article className="introduction__content--noImage">
@@ -30,8 +32,8 @@ class DetailedIntroduction extends PureComponent {
 	}
 }
 
-const mapStateToProps = ({ about }) => ({
-	data: about.detailedIntroduction,
+const mapStateToProps = ({ detailedIntroduction }) => ({
+	data: detailedIntroduction,
 });
 
 export default connect(mapStateToProps)(DetailedIntroduction);
