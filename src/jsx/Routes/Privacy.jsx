@@ -104,13 +104,11 @@ const Imprint = () => (
 						The website provider automatically collects and stores information that your browser
 						automatically transmits to us in "server log files". These are:
 					</P>
-					<P>
-						<ul className="bullet-list">
-							<li>Browser type and browser version</li> <li>Operating system used</li>
-							<li>Referrer URL</li> <li>Host name of the accessing computer</li>
-							<li>Time of the server request</li> <li>IP address</li>
-						</ul>
-					</P>
+					<ul className="bullet-list">
+						<li>Browser type and browser version</li> <li>Operating system used</li>
+						<li>Referrer URL</li> <li>Host name of the accessing computer</li>
+						<li>Time of the server request</li> <li>IP address</li>
+					</ul>
 					<P>These data will not be combined with data from other sources.</P>
 					<P>
 						The basis for data processing is Art. 6 (1) (f) DSGVO, which allows the processing of
@@ -144,7 +142,8 @@ const Imprint = () => (
 						declaration of YouTube under{' '}
 						<A href="https://www.google.de/intl/de/policies/privacy" target="_blank">
 							https://www.google.de/intl/de/policies/privacy
-						</A>.
+						</A>
+						.
 					</P>
 				</Text>
 			</Article>
