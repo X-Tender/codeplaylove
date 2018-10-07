@@ -22,6 +22,8 @@ $app->group("/api", function () {
     ->setName("getAbout");
   $this->get("/getToolset", ["App\Controllers\APIController", "getToolset"])
     ->setName("getToolset");
+  $this->get("/getGames", ["App\Controllers\APIController", "getGames"])
+    ->setName("getGames");
 });
 
 /* INDEX ROUTE */

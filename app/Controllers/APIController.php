@@ -322,4 +322,36 @@ class APIController
       "toolgroups" => $toolset["data"]["toolgroups"],
     ];
   }
+
+  private function getRelativeImagePath($url)
+  {
+    $re = '/(^\/\/[\w\.\-_]+\/)(.+)/m';
+    preg_match_all($re, $url, $match, PREG_SET_ORDER, 0);
+    return array_pop($match[0]);
+  }
+
+  public function getGames(Request $request, Response $response)
+  {
+    $games = $this->directus->getItem('games', 1, ["depth" => 2])->toArray();
+
+    unset($games["meta"]);
+    foreach ($games["data"]["gameitems"]["data"] as $key => &$value) {
+      unset($value["game_section"]);
+      unset($value["junction"]);
+      $value["cover"] = $this->getRelativeImagePath($value["cover"]["data"]["url"]);
+      $value["header"] = $this->getRelativeImagePath($value["header"]["data"]["url"]);
+
+      $value["images"] = array_map(function ($d) {
+        return $this->getRelativeImagePath($d["url"]);
+      }, $value["images"]["data"]);
+    }
+
+    $games["data"]["gameitems"] = array_map(function ($d) {
+      return $d;
+    }, $games["data"]["gameitems"]["data"]);
+
+    return $response->withJson([
+      "data" => $games["data"],
+    ]);
+  }
 }
