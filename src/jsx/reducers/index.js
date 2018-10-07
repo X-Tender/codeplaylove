@@ -9,6 +9,7 @@ import introduction from './introduction';
 import cards from './cards';
 import about from './about';
 import detailedIntroduction from './detailedIntroduction';
+import games from './games';
 
 export default combineReducers({
 	routing: routerReducer,
@@ -21,4 +22,5 @@ export default combineReducers({
 	cards,
 	about,
 	detailedIntroduction,
+	games,
 });
