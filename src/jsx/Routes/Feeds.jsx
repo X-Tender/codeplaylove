@@ -14,16 +14,17 @@ class Feeds extends React.PureComponent {
 	}
 
 	getItems() {
-		return this.props.grid.map((item, index) => <GridItem key={index} data={item} />);
+		return this.props.grid.map(item => <GridItem key={item.created_at} data={item} />);
 	}
 
 	render() {
+		const { header, caption, loaded } = this.props;
+
+		if (!loaded) return null;
 		return (
 			<React.Fragment>
-				<HeaderImage
-					src="assets/img/feeds/header.jpg"
-					caption="Photo by Rodion Kutsaev on Unsplash"
-				/>
+				<HeaderImage src={header} caption={caption} />
+
 				<Section className="feeds content">
 					<Article className="feeds__article">
 						<Header className="introduction__head" subhead="Feeds" headline="My sharings" />
@@ -47,10 +48,17 @@ class Feeds extends React.PureComponent {
 
 const mapStateToProps = ({ grid }) => ({
 	grid: grid.data,
+	loaded: grid.loaded,
+	title: grid.title,
+	header: grid.header,
+	caption: grid.caption,
 });
 
 const mapDispatchToProps = {
 	getPosts,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Feeds);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Feeds);

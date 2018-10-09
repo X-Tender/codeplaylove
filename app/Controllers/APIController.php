@@ -202,6 +202,7 @@ class APIController
 
   public function getData(Request $request, Response $response)
   {
+    $feeds = $this->getFeedsPage();
     $tweets = $this->getTweets();
     $instagramPosts = $this->getInstagramPosts();
 
@@ -214,10 +215,24 @@ class APIController
     $responseData = [
       "error" => 0,
       "message" => "SUCCESS",
-      "data" => $data,
+      "data" => [
+        "posts" => $data,
+        "feeds" => $feeds,
+      ],
     ];
 
     return $response->withJson($responseData);
+  }
+
+  private function getFeedsPage()
+  {
+    $feeds = $this->directus->getItem('feeds', 1);
+
+    return [
+      "title" => $feeds->title,
+      "caption" => $feeds->caption,
+      "header" => $this->getRelativeImagePath($feeds->header->url),
+    ];
   }
 
   public function getIntroduction(Request $request, Response $response)

@@ -3,7 +3,11 @@ import HTTP from 'Utils/HTTP';
 const UPDATE_POSTS = 'grid/UPDATE_POSTS';
 
 const initialState = {
+	loaded: false,
 	data: [],
+	title: '',
+	header: '',
+	caption: '',
 };
 
 export default (state = initialState, action) => {
@@ -12,7 +16,9 @@ export default (state = initialState, action) => {
 		case UPDATE_POSTS:
 			return {
 				...state,
-				data: payload,
+				loaded: true,
+				...payload.feeds,
+				data: payload.posts,
 			};
 
 		default:
