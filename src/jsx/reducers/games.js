@@ -7,12 +7,14 @@ const initialState = {
 	head: '',
 	subhead: '',
 	copy: '',
+	header: '',
+	caption: '',
 	gameList: [],
 };
 
 export default (state = initialState, action) => {
 	const { type, payload: { data = {} } = {} } = action;
-	const { head, subhead, copy, gameitems: gameList } = data;
+	const { head, subhead, copy, gameitems: gameList, header, caption } = data;
 
 	switch (type) {
 		case GAMES_GET:
@@ -22,6 +24,8 @@ export default (state = initialState, action) => {
 				head,
 				subhead,
 				copy,
+				header,
+				caption,
 				gameList,
 			};
 

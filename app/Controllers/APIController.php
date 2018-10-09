@@ -363,6 +363,7 @@ class APIController
     $games = $this->directus->getItem('games', 1, ["depth" => 2])->toArray();
 
     unset($games["meta"]);
+    $games["data"]["header"] = $this->getRelativeImagePath($games["data"]["header"]["data"]["url"]);
     foreach ($games["data"]["gameitems"]["data"] as $key => &$value) {
       unset($value["game_section"]);
       unset($value["junction"]);
@@ -382,4 +383,5 @@ class APIController
       "data" => $games["data"],
     ]);
   }
+
 }

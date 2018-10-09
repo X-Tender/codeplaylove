@@ -30,12 +30,12 @@ class Games extends React.Component {
 	}
 
 	render() {
-		const { loaded, head, subhead, copy } = this.props.games;
+		const { loaded, head, subhead, copy, header, caption } = this.props.games;
 		if (!loaded) return null;
 
 		return (
 			<React.Fragment>
-				<HeaderImage src="assets/img/games/header.jpg" caption="Photo by Carl Raw on Unsplash" />
+				<HeaderImage src={header} caption={caption} />
 				<Section>
 					<Article>
 						<Header subhead={subhead} headline={head} />
