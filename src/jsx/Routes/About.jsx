@@ -16,9 +16,11 @@ class About extends PureComponent {
 	render() {
 		if (!this.props.about.loaded) return null;
 
+		const { header } = this.props.about;
+
 		return (
 			<React.Fragment>
-				<HeaderImage src="assets/img/introduction/header.jpg" />
+				<HeaderImage src={header} />
 				<DetailedIntroduction />
 				<Skills />
 				<Uses />

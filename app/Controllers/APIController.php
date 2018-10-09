@@ -273,6 +273,7 @@ class APIController
 
   public function getAbout(Request $request, Response $response)
   {
+    $about = $this->getAboutPage();
     $detailedIntroduction = $this->getDetailedIntroduction();
     $skillset = $this->getSkillset();
     $toolset = $this->getToolset();
@@ -280,12 +281,24 @@ class APIController
     $responseData = [
       "error" => 0,
       "message" => "SUCCESS",
+      "about" => $about,
       "detailedIntroduction" => $detailedIntroduction,
       "skillset" => $skillset,
       "toolset" => $toolset,
     ];
 
     return $response->withJson($responseData);
+  }
+
+  private function getAboutPage()
+  {
+    $about = $this->directus->getItem('about', 1);
+
+    return [
+      "title" => $about->title,
+      "caption" => $about->caption,
+      "header" => $this->getRelativeImagePath($about->header->url),
+    ];
   }
 
   private function getDetailedIntroduction()
