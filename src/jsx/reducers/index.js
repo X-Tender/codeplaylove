@@ -10,6 +10,9 @@ import cards from './cards';
 import about from './about';
 import detailedIntroduction from './detailedIntroduction';
 import games from './games';
+import imprint from './imprint';
+import credits from './credits';
+import privacy from './privacy';
 
 export default combineReducers({
 	routing: routerReducer,
@@ -23,4 +26,7 @@ export default combineReducers({
 	about,
 	detailedIntroduction,
 	games,
+	imprint,
+	credits,
+	privacy,
 });

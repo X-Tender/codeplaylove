@@ -1,4 +1,7 @@
 import React from 'react';
+import convert from 'htmr';
+import { connect } from 'react-redux';
+import { getImprint } from 'reducers/imprint';
 import HeaderImage from 'Components/HeaderImage';
 import Header from 'Components/Header';
 import Text from 'Components/Text';
@@ -7,46 +10,64 @@ import Section from 'Semantics/Section';
 import P from 'Components/P';
 import A from 'Components/A';
 
-const Imprint = () => (
-	<React.Fragment>
-		<HeaderImage
-			src="assets/img/imprint/header.jpg"
-			caption="Photo by Adria Berrocal Forcada on Unsplash"
-		/>
-		<Section>
-			<Article>
-				<Header subhead="Imprint" headline="In case of groopies" />
+class Imprint extends React.Component {
+	constructor(props) {
+		super(props);
 
-				<Text>
-					<P>Paul Kamma</P>
-					<P>
-						<A href="mailto:paul@codeplaylove.de" title="paul@codeplaylove.de">
-							contact@codeplaylove.de
-						</A>
-					</P>
-				</Text>
-			</Article>
-		</Section>
+		if (!this.props.imprint.loaded) this.props.getImprint();
+	}
 
-		<Section>
-			<Article>
-				<Header subhead="Credits" headline="Thank you" />
-				<Text>
-					<P>
-						Icons on startpage designed by{' '}
-						<A
-							href="https://www.flaticon.com/authors/eucalyp"
-							target="_blank"
-							title="eucalyp @ Flatcion.com"
-						>
-							eucalyp
-						</A>{' '}
-						from Flaticon.
-					</P>
-				</Text>
-			</Article>
-		</Section>
-	</React.Fragment>
-);
+	render() {
+		const { loaded, head, subhead, copy, caption, header } = this.props.imprint;
 
-export default Imprint;
+		const { credits } = this.props;
+
+		if (!loaded) {
+			return null;
+		}
+
+		return (
+			<React.Fragment>
+				<HeaderImage src={header} caption={caption} />
+				<Section>
+					<Article>
+						<Header subhead={subhead} headline={head} />
+
+						<Text>
+							{convert(copy, {
+								transform: {
+									p: P,
+									a: A,
+								},
+							})}
+						</Text>
+					</Article>
+				</Section>
+
+				<Section>
+					<Article>
+						<Header subhead={credits.subhead} headline={credits.head} />
+						<Text>
+							{convert(credits.copy, {
+								transform: {
+									p: P,
+									a: A,
+								},
+							})}
+						</Text>
+					</Article>
+				</Section>
+			</React.Fragment>
+		);
+	}
+}
+
+const mapStateToProps = ({ imprint, credits }) => ({
+	imprint,
+	credits,
+});
+
+export default connect(
+	mapStateToProps,
+	{ getImprint }
+)(Imprint);

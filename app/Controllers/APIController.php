@@ -384,4 +384,62 @@ class APIController
     ]);
   }
 
+  public function getImprint(Request $request, Response $response)
+  {
+    $imprint = $this->getImprintPage();
+    $credits = $this->getCredits();
+
+    $responseData = [
+      "error" => 0,
+      "message" => "SUCCESS",
+      "imprint" => $imprint,
+      "credits" => $credits,
+    ];
+
+    return $response->withJson($responseData);
+  }
+
+  private function getImprintPage()
+  {
+    $about = $this->directus->getItem('imprint', 1);
+
+    return [
+      "head" => $about->head,
+      "subhead" => $about->subhead,
+      "copy" => $about->copy,
+      "caption" => $about->caption,
+      "header" => $this->getRelativeImagePath($about->header->url),
+    ];
+  }
+
+  private function getCredits()
+  {
+    $about = $this->directus->getItem('credits', 1);
+
+    return [
+      "head" => $about->head,
+      "subhead" => $about->subhead,
+      "copy" => $about->copy,
+    ];
+  }
+
+  public function getPrivacy(Request $request, Response $response)
+  {
+    $privacy = $this->directus->getItem('privacy', 1);
+
+    $responseData = [
+      "error" => 0,
+      "message" => "SUCCESS",
+      "privacy" => [
+        "head" => $privacy->head,
+        "subhead" => $privacy->subhead,
+        "copy" => $privacy->copy,
+        "caption" => $privacy->caption,
+        "header" => $this->getRelativeImagePath($privacy->header->url),
+      ]
+    ];
+
+    return $response->withJson($responseData);
+  }
+
 }
