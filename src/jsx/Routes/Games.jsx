@@ -16,9 +16,7 @@ class Games extends React.Component {
 	constructor(props) {
 		super(props);
 
-		if (!props.games.loaded) {
-			props.getGames();
-		}
+		if (!props.games.loaded) props.getGames();
 	}
 
 	get floppys() {
