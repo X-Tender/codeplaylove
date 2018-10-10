@@ -19,12 +19,9 @@ class Imprint extends React.Component {
 
 	render() {
 		const { loaded, head, subhead, copy, caption, header } = this.props.imprint;
-
 		const { credits } = this.props;
 
-		if (!loaded) {
-			return null;
-		}
+		if (!loaded) return null;
 
 		return (
 			<React.Fragment>
