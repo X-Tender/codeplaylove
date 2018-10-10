@@ -14,9 +14,9 @@ class About extends PureComponent {
 	}
 
 	render() {
-		if (!this.props.about.loaded) return null;
+		const { header, loaded } = this.props.about;
 
-		const { header } = this.props.about;
+		if (!loaded) return null;
 
 		return (
 			<React.Fragment>
