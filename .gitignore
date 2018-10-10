@@ -20,7 +20,6 @@ public/assets/fonts/slim-icon-font/*
 
 *.log
 *.map
-composer.lock
 composer.phar
 webpack.vars.local.js
 yarn.lock
