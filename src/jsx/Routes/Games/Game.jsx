@@ -32,7 +32,6 @@ const Images = ({ images }) => {
 class Game extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log('GAME');
 
 		if (!this.props.data.loaded) {
 			this.props.getGames();
@@ -40,7 +39,6 @@ class Game extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.data);
 		const { loaded, header, name, images, youtube, ratio, copy } = this.props.data;
 
 		if (!loaded) return null;
