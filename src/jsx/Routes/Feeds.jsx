@@ -9,7 +9,9 @@ import Article from 'Semantics/Article';
 import Header from 'Components/Header';
 
 class Feeds extends React.PureComponent {
-	componentDidMount() {
+	constructor(props) {
+		super(props);
+
 		if (this.props.grid.length === 0) this.props.getPosts();
 	}
 
@@ -21,6 +23,7 @@ class Feeds extends React.PureComponent {
 		const { header, caption, loaded } = this.props;
 
 		if (!loaded) return null;
+
 		return (
 			<React.Fragment>
 				<HeaderImage src={header} caption={caption} />
@@ -54,11 +57,7 @@ const mapStateToProps = ({ grid }) => ({
 	caption: grid.caption,
 });
 
-const mapDispatchToProps = {
-	getPosts,
-};
-
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{ getPosts }
 )(Feeds);
