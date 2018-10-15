@@ -3,7 +3,7 @@ import Hero from 'Components/Hero';
 import Introduction from 'Components/Introduction';
 import CodePlayLoveCards from 'Components/CodePlayLoveCards';
 
-const Home = (
+const Home = () => (
 	<React.Fragment>
 		<Hero />
 		<Introduction />
