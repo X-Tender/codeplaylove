@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { getSocialLinks } from 'reducers/socialLinks';
 
 const SocialLinkItem = ({ url, iconName, children }) => (
 	<li className="social-links__list-item">
@@ -15,23 +17,30 @@ const SocialLinkItem = ({ url, iconName, children }) => (
 	</li>
 );
 
-const SocialLinks = () => (
-	<ul className="social-links">
-		<SocialLinkItem url="//github.com/X-Tender" iconName="github">
-			GitHub
-		</SocialLinkItem>
-		<SocialLinkItem url="//twitter.com/xtender" iconName="twitter">
-			Twitter
-		</SocialLinkItem>
-		<SocialLinkItem url="//instagram.com/xtender" iconName="instagram">
-			Instagram
-		</SocialLinkItem>
-		<SocialLinkItem url="//facebook.com/paul.kamma" iconName="facebook">
-			Facebook
-		</SocialLinkItem>
-		<SocialLinkItem url="//xing.com/profile/Paul_Kamma" iconName="xing">
-			XING
-		</SocialLinkItem>
-	</ul>
-);
-export default SocialLinks;
+class SocialLinks extends React.Component {
+	constructor(props) {
+		super(props);
+
+		if (!this.props.socialLinks.loaded) this.props.getSocialLinks();
+	}
+
+	render() {
+		const { loaded, data } = this.props.socialLinks;
+		if (!loaded) return null;
+
+		const socialLinks = data.map(({ id, name, url, icon_name }) => (
+			<SocialLinkItem key={id} url={url} iconName={icon_name}>
+				{name}
+			</SocialLinkItem>
+		));
+
+		return <ul className="social-links">{socialLinks}</ul>;
+	}
+}
+
+const mapStateToProps = ({ socialLinks }) => ({ socialLinks });
+
+export default connect(
+	mapStateToProps,
+	{ getSocialLinks }
+)(SocialLinks);

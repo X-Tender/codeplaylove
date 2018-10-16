@@ -13,6 +13,7 @@ import games from './games';
 import imprint from './imprint';
 import credits from './credits';
 import privacy from './privacy';
+import socialLinks from './socialLinks';
 
 export default combineReducers({
 	routing: routerReducer,
@@ -29,4 +30,5 @@ export default combineReducers({
 	imprint,
 	credits,
 	privacy,
+	socialLinks,
 });
