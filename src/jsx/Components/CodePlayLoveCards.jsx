@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import convert from 'htmr';
 import { getCards } from 'reducers/cards';
 import Section from 'Semantics/Section';
-import P from 'Components/P';
-import A from 'Components/A';
-import convert from 'htmr';
+import P from 'Semantics/P';
+import A from 'Semantics/A';
 
 const CodePlayLoveCard = ({ title, children, style }) => (
 	<li className={`code-play-love-card code-play-love-card--${style}`}>

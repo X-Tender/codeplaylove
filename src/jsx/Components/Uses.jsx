@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Section from 'Semantics/Section';
 import Article from 'Semantics/Article';
 import Header from 'Components/Header';
-import A from 'Components/A';
+import A from 'Semantics/A';
 
 const ListItem = ({ link, children }) => (
 	<li className="uses__list-item">

@@ -9,8 +9,8 @@ import Header from 'Components/Header';
 import Text from 'Components/Text';
 import Article from 'Semantics/Article';
 import Section from 'Semantics/Section';
-import P from 'Components/P';
-import A from 'Components/A';
+import P from 'Semantics/P';
+import A from 'Semantics/A';
 
 const Video = ({ youtubeId, className, ratio = '4:3' }) => (
 	<div style={{ gridColumn: '1/-1' }} className={className}>

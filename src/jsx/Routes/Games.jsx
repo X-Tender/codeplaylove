@@ -9,8 +9,8 @@ import Text from 'Components/Text';
 import Floppy from 'Components/Floppy';
 import Article from 'Semantics/Article';
 import Section from 'Semantics/Section';
-import P from 'Components/P';
-import A from 'Components/A';
+import P from 'Semantics/P';
+import A from 'Semantics/A';
 
 class Games extends React.Component {
 	constructor(props) {

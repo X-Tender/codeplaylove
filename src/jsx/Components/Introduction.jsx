@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import convert from 'htmr';
 import { getIntroduction } from 'reducers/introduction';
 import Button from 'Components/Button';
 import Header from 'Components/Header';
-import P from 'Components/P';
-import A from 'Components/A';
 import Section from 'Semantics/Section';
 import Article from 'Semantics/Article';
-import convert from 'htmr';
+import P from 'Semantics/P';
+import A from 'Semantics/A';
 
 class Introduction extends PureComponent {
 	constructor(props) {

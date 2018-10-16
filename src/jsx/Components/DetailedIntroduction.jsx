@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import convert from 'htmr';
 import Header from 'Components/Header';
 import Text from 'Components/Text';
-import P from 'Components/P';
-import A from 'Components/A';
+import P from 'Semantics/P';
+import A from 'Semantics/A';
 import Section from 'Semantics/Section';
 import Article from 'Semantics/Article';
 
