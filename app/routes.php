@@ -12,8 +12,8 @@ $app->get("/dev/instagram/{code}", ["App\Controllers\APIController", "getInstagr
 
 /* API ROUTES */
 $app->group("/api", function () {
-  $this->get("/getData", ["App\Controllers\APIController", "getData"])
-    ->setName("getData");
+  $this->get("/getFeedsData", ["App\Controllers\APIController", "getFeedsData"])
+    ->setName("getFeedsData");
   $this->get("/getIntroduction", ["App\Controllers\APIController", "getIntroduction"])
     ->setName("getIntroduction");
   $this->get("/getCards", ["App\Controllers\APIController", "getCards"])

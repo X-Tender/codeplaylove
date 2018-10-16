@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getPosts } from 'reducers/grid';
+import { getFeeds } from 'reducers/feeds';
 import StackGrid from 'react-stack-grid';
 import GridItem from 'Components/GridItem';
 import HeaderImage from 'Components/HeaderImage';
@@ -12,7 +12,7 @@ class Feeds extends React.PureComponent {
 	constructor(props) {
 		super(props);
 
-		if (this.props.grid.length === 0) this.props.getPosts();
+		if (this.props.grid.length === 0) this.props.getFeeds();
 	}
 
 	getItems() {
@@ -59,5 +59,5 @@ const mapStateToProps = ({ grid }) => ({
 
 export default connect(
 	mapStateToProps,
-	{ getPosts }
+	{ getFeeds }
 )(Feeds);

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import grid from './grid';
+import feeds from './feeds';
 import menu from './menu';
 import skills from './skills';
 import gears from './gears';
@@ -17,7 +17,7 @@ import socialLinks from './socialLinks';
 
 export default combineReducers({
 	routing: routerReducer,
-	grid,
+	feeds,
 	menu,
 	skills,
 	gears,

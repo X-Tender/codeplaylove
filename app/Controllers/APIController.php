@@ -203,7 +203,7 @@ class APIController
     fclose($fp);
   }
 
-  public function getData(Request $request, Response $response)
+  public function getFeedsData(Request $request, Response $response)
   {
     $feeds = $this->getFeedsPage();
     $tweets = $this->getTweets();

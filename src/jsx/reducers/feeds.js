@@ -1,6 +1,6 @@
 import HTTP from 'Utils/HTTP';
 
-const UPDATE_POSTS = 'grid/UPDATE_POSTS';
+const GET_FEEDS = 'feeds/GET_FEEDS';
 
 const initialState = {
 	loaded: false,
@@ -13,7 +13,7 @@ const initialState = {
 export default (state = initialState, action) => {
 	const { type, payload } = action;
 	switch (type) {
-		case UPDATE_POSTS:
+		case GET_FEEDS:
 			return {
 				...state,
 				loaded: true,
@@ -26,10 +26,10 @@ export default (state = initialState, action) => {
 	}
 };
 
-export const getPosts = () => dispatch => {
-	HTTP.get('api/getData').then(response => {
+export const getFeeds = () => dispatch => {
+	HTTP.get('api/getFeedsData').then(response => {
 		dispatch({
-			type: UPDATE_POSTS,
+			type: GET_FEEDS,
 			payload: response.data.data,
 		});
 	});
