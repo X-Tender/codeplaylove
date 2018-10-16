@@ -78,7 +78,7 @@ class APIController
 
     foreach ($res->data as $key => $post) {
       $data = [
-        "image" => $post->images->low_resolution,
+        "image" => $post->images->standard_resolution,
         "text" => $post->caption->text,
         "created_at" => (int)$post->caption->created_time,
         "likes" => $post->likes->count,
@@ -87,11 +87,14 @@ class APIController
         "url" => $post->link,
         "source" => "instagram",
       ];
-
       if ($post->type === "carousel") {
         $carousel_media = [];
         foreach ($post->carousel_media as $key => $media) {
-          $carousel_media[] = $media->images->standard_resolution;
+          if ($media->type === "video") {
+            $carousel_media[] = $media->videos->standard_resolution;
+          } else {
+            $carousel_media[] = $media->images->standard_resolution;
+          }
         }
         $data["carousel_media"] = $carousel_media;
       }
