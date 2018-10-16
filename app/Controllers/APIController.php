@@ -442,4 +442,17 @@ class APIController
     return $response->withJson($responseData);
   }
 
+  public function getSocialLinks(Request $request, Response $response)
+  {
+    $items = $this->directus->getItems('social_links', ["columns" => "id,name,url,icon_name"])->getRawData();
+
+    $responseData = [
+      "error" => 0,
+      "message" => "SUCCESS",
+      "data" => $items["data"],
+    ];
+
+    return $response->withJson($responseData);
+  }
+
 }

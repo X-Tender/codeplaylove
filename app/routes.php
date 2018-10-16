@@ -28,6 +28,8 @@ $app->group("/api", function () {
     ->setName("getImprint");
   $this->get("/getPrivacy", ["App\Controllers\APIController", "getPrivacy"])
     ->setName("getPrivacy");
+  $this->get("/getSocialLinks", ["App\Controllers\APIController", "getSocialLinks"])
+    ->setName("getSocialLinks");
 });
 
 /* INDEX ROUTE */
