@@ -2,6 +2,8 @@ node_modules/
 vendor_modules/
 
 directus/
+directusv7/
+directusapi/
 
 app/config/live.php
 app/config/development.php
