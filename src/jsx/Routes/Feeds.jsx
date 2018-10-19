@@ -11,12 +11,11 @@ import Header from 'Components/Header';
 class Feeds extends React.PureComponent {
 	constructor(props) {
 		super(props);
-
-		if (this.props.grid.length === 0) this.props.getFeeds();
+		if (!this.props.feeds.loaded) this.props.getFeeds();
 	}
 
 	getItems() {
-		return this.props.grid.map(item => <GridItem key={item.created_at} data={item} />);
+		return this.props.feeds.map(item => <GridItem key={item.created_at} data={item} />);
 	}
 
 	render() {
@@ -49,12 +48,12 @@ class Feeds extends React.PureComponent {
 	}
 }
 
-const mapStateToProps = ({ grid }) => ({
-	grid: grid.data,
-	loaded: grid.loaded,
-	title: grid.title,
-	header: grid.header,
-	caption: grid.caption,
+const mapStateToProps = ({ feeds }) => ({
+	feeds: feeds.data,
+	loaded: feeds.loaded,
+	title: feeds.title,
+	header: feeds.header,
+	caption: feeds.caption,
 });
 
 export default connect(
