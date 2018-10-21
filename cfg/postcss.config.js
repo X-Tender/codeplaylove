@@ -1,12 +1,7 @@
 const svgoSettings = require('./svgo.config.json');
-const browsers = [
-	'Edge >= 13',
-	'Firefox ESR',
-	'safari >= 10',
-	'Chrome >= 60',
-	'ChromeAndroid >= 60',
-	'last 2 iOS versions',
-];
+const fs = require('fs');
+const babelrc = JSON.parse(fs.readFileSync('.babelrc', 'utf8'));
+const browsers = babelrc.presets[0][1].targets.browsers;
 
 const settings = ctx => ({
 	parser: 'postcss-scss',
@@ -30,19 +25,23 @@ const settings = ctx => ({
 			rootValue: 16,
 			selectorBlackList: ['body'],
 		},
-		'postcss-assets': {},
+		'postcss-assets': {
+			relative: 'css/',
+			loadPaths: ['img/', 'img/**/*', 'fonts/', 'fonts/**/*'],
+			basePath: 'public/assets/',
+			cachebuster: false,
+		},
 		'postcss-flexbugs-fixes': {},
 		'postcss-size': {},
 		'postcss-inline-svg': {
 			path: 'src/svg',
-			encode: code => {
-				return code
+			encode: code =>
+				code
 					.replace(/%/g, '%25')
 					.replace(/</g, '%3C')
 					.replace(/>/g, '%3E')
 					.replace(/&/g, '%26')
-					.replace(/#/g, '%23');
-			},
+					.replace(/#/g, '%23'),
 			removeFill: true,
 		},
 		'postcss-will-change': {},
@@ -53,7 +52,6 @@ const settings = ctx => ({
 			mediaQueries: true,
 		},
 		'postcss-initial': {},
-		'postcss-color-function': {},
 		'postcss-input-style': {},
 		'postcss-easings': {},
 		'postcss-mesh': {},
@@ -62,8 +60,8 @@ const settings = ctx => ({
 		},
 		'postcss-svgo': svgoSettings,
 		cssnano:
-			ctx.env === 'production'
-				? {
+			ctx.env === 'production' ?
+				{
 						filterPlugins: false,
 						safe: true,
 						mergeRules: false,
@@ -72,8 +70,8 @@ const settings = ctx => ({
 						discardComments: {
 							removeAll: true,
 						},
-					}
-				: false,
+				  } :
+				false,
 	},
 });
 

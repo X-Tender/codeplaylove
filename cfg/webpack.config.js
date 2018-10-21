@@ -11,13 +11,10 @@ for (const key in entry) {
 	entry[key].push(hotMiddlewareScript);
 }
 
-const plugins = [
-	new webpack.optimize.OccurrenceOrderPlugin(),
-	new webpack.HotModuleReplacementPlugin(),
-	new webpack.NoEmitOnErrorsPlugin(),
-];
+const plugins = [new webpack.HotModuleReplacementPlugin()];
 
 module.exports = {
+	mode: 'development',
 	devtool: 'eval-source-map',
 	context: path.join(__dirname, '..', 'src', 'jsx'),
 
@@ -32,6 +29,7 @@ module.exports = {
 		path: path.resolve(__dirname, '..', 'public', 'assets', 'js'),
 		publicPath: `${devPath}/assets/js/`,
 		filename: '[name].js',
+		chunkFilename: '[name].js',
 	},
 
 	plugins,

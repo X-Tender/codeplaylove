@@ -1,11 +1,16 @@
 'use strict';
 const fs = require('fs');
 
+const entryWithHMR = entrys => {
+	if (process.env.NODE_ENV === 'production') return entrys;
+	return [entrys[0], 'react-hot-loader/patch'].concat(entrys.slice(1));
+};
+
 const settings = {
 	devHost: 'http://www.codeplaylove.io',
 	devPath: '',
 	entry: {
-		bundle: ['react-hot-loader/patch', 'babel-polyfill', './Index.jsx'],
+		bundle: entryWithHMR(['@babel/polyfill', './Index.jsx']),
 	},
 	rules: [
 		{
