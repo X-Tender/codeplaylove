@@ -41,23 +41,13 @@ module.exports = {
 	},
 
 	optimization: {
-		splitChunks: {
-			cacheGroups: {
-				vendor: {
-					test: /[\\/]node_modules[\\/]/,
-					name: 'vendors',
-					priority: -20,
-					chunks: 'all',
-				},
-			},
-		},
 		minimize: true,
 		minimizer: [
 			new UglifyJsPlugin({
 				uglifyOptions: {
 					ecma: 5,
 					warnings: false,
-					mangle: false,
+					mangle: true,
 					keep_fnames: true,
 					output: {
 						comments: false,
