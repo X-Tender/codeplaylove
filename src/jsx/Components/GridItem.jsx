@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class GridItem extends React.PureComponent {
 	constructor(props) {
@@ -23,7 +24,7 @@ class GridItem extends React.PureComponent {
 
 			return (
 				<div className="grid-item__wrapper" style={instagramBackgroundImage}>
-					<img src={image.url} className="grid-item__image" />
+					<img className="grid-item__image" src={image.url} />
 
 					<div className="grid-item__instagram-text-wrapper">
 						<p className="grid-item__instagram-text">{text}</p>
@@ -56,7 +57,7 @@ class GridItem extends React.PureComponent {
 		if (image) {
 			tweetImage = (
 				<div className="grid-item__wrapper" style={twitterBackgroundImage}>
-					<img src={image} className="grid-item__image" />
+					<img className="grid-item__image" src={image} />
 				</div>
 			);
 		}
@@ -77,7 +78,7 @@ class GridItem extends React.PureComponent {
 		const classes = `grid-item grid-item--${source}`;
 		return (
 			<div className={classes}>
-				<a className="grid-item__link" target="_blank" rel="noopener noreferrer" href={url}>
+				<a className="grid-item__link" href={url} rel="noopener noreferrer" target="_blank">
 					{head}
 					{body}
 				</a>
@@ -85,5 +86,16 @@ class GridItem extends React.PureComponent {
 		);
 	}
 }
+
+GridItem.propTypes = {
+	data: PropTypes.shape({
+		source: PropTypes.string.isRequired,
+		text: PropTypes.string.isRequired,
+		image: PropTypes.string.isRequired,
+		url: PropTypes.string.isRequired,
+		comments: PropTypes.number.isRequired,
+		likes: PropTypes.number.isRequired,
+	}).isRequired,
+};
 
 export default GridItem;

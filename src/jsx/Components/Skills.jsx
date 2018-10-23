@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Section from 'Semantics/Section';
@@ -19,7 +20,7 @@ class Skills extends PureComponent {
 			const style = { color: `#${skill.color}80`, backgroundColor: `#${skill.color}` };
 
 			return (
-				<li key={skill.id} className="skills__list-item" style={style}>
+				<li className="skills__list-item" key={skill.id} style={style}>
 					<span className="skills__list-item-label">{skill.name}</span>
 				</li>
 			);
@@ -33,13 +34,24 @@ class Skills extends PureComponent {
 		return (
 			<Section className="skills">
 				<Article>
-					<Header subhead={subhead} headline={head} />
+					<Header headline={head} subhead={subhead} />
 					<ul className="skills__list">{this.getSkills()}</ul>
 				</Article>
 			</Section>
 		);
 	}
 }
+
+Skills.propTypes = {
+	data: PropTypes.shape({
+		skillset: PropTypes.shape({
+			skills: PropTypes.array.isRequired,
+			loaded: PropTypes.bool.isRequired,
+			subhead: PropTypes.string.isRequired,
+			head: PropTypes.string.isRequired,
+		}),
+	}).isRequired,
+};
 
 const mapStateToProps = ({ skills }) => ({
 	data: skills,

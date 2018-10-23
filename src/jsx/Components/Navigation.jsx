@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
@@ -8,9 +9,9 @@ const NavigItem = ({ children, to, style }) => (
 	<li className="navigation__list-item">
 		<i className={`fas fa-${style}`} />
 		<NavLink
-			exact
 			activeClassName="navigation__link--active"
 			className={`navigation__link navigation__link--${style}`}
+			exact
 			to={to}
 		>
 			{children}
@@ -18,9 +19,19 @@ const NavigItem = ({ children, to, style }) => (
 	</li>
 );
 
+NavigItem.propTypes = {
+	children: PropTypes.node,
+	to: PropTypes.string.isRequired,
+	style: PropTypes.string.isRequired,
+};
+
+NavigItem.defaultProps = {
+	children: null,
+};
+
 class Navigation extends Component {
 	render() {
-		const classes = `navigation ${this.props.open ? 'isOpen' : ''}`;
+		const classes = `navigation ${this.props.isOpen ? 'isOpen' : ''}`;
 		return (
 			<nav className={classes}>
 				<Burger />
@@ -48,8 +59,16 @@ class Navigation extends Component {
 	}
 }
 
+Navigation.propTypes = {
+	isOpen: PropTypes.bool,
+};
+
+Navigation.defaultProps = {
+	isOpen: false,
+};
+
 const mapStateToProps = ({ menu }) => ({
-	open: menu.open,
+	isOpen: menu.isOpen,
 });
 
 export default connect(mapStateToProps)(Navigation);

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import convert from 'htmr';
 import { getIntroduction } from 'reducers/introduction';
@@ -22,7 +23,7 @@ class Introduction extends PureComponent {
 		return (
 			<Section className="introduction content">
 				<Article className="introduction__article">
-					<Header className="introduction__head" subhead={subhead} headline={head} />
+					<Header className="introduction__head" headline={head} subhead={subhead} />
 					<div className="introduction__body">
 						{punchline &&
 							React.cloneElement(
@@ -49,7 +50,7 @@ class Introduction extends PureComponent {
 					</div>
 
 					<footer className="introduction__footer">
-						<Button to="about" primary ghost fullWithSm>
+						<Button isFullWithSm isGhost isPrimary to="about">
 							Learn more about me
 						</Button>
 					</footer>
@@ -57,9 +58,9 @@ class Introduction extends PureComponent {
 					<div className="introduction__photo">
 						{image && (
 							<img
+								alt="Portrait of Paul Kamma"
 								className="introduction__img"
 								src={image}
-								alt="Portrait of Paul Kamma"
 								title="Hello, I'm Paul"
 							/>
 						)}
@@ -69,6 +70,17 @@ class Introduction extends PureComponent {
 		);
 	}
 }
+
+Introduction.propTypes = {
+	introduction: PropTypes.shape({
+		copy: PropTypes.string.isRequired,
+		head: PropTypes.string.isRequired,
+		image: PropTypes.string.isRequired,
+		punchline: PropTypes.string.isRequired,
+		subhead: PropTypes.string.isRequired,
+	}).isRequired,
+	getIntroduction: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ introduction }) => ({
 	introduction,

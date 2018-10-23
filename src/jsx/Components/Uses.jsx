@@ -52,7 +52,7 @@ class Tools extends Component {
 			const toolList = this.getShuffledTools(tools);
 
 			return (
-				<div key={id} className="uses__card">
+				<div className="uses__card" key={id}>
 					<h3 className="uses__head">{name}</h3>
 					<ul className="uses__list">{toolList}</ul>
 				</div>
@@ -67,13 +67,22 @@ class Tools extends Component {
 		return (
 			<Section>
 				<Article>
-					<Header subhead={subhead} headline={head} />
+					<Header headline={head} subhead={subhead} />
 					<div className="uses__cards">{usesCards}</div>
 				</Article>
 			</Section>
 		);
 	}
 }
+
+Tools.propTypes = {
+	data: PropTypes.shape({
+		loaded: PropTypes.bool.isRequired,
+		toolset: PropTypes.shape({
+			toolgroups: PropTypes.array.isRequired,
+		}).isRequired,
+	}).isRequired,
+};
 
 const mapStateToProps = ({ tools }) => ({
 	data: tools,

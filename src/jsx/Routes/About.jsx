@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAbout } from 'reducers/about';
 import HeaderImage from 'Components/HeaderImage';
@@ -28,6 +29,14 @@ class About extends PureComponent {
 		);
 	}
 }
+
+About.propTypes = {
+	about: PropTypes.shape({
+		loaded: PropTypes.bool.isRequired,
+		header: PropTypes.string.isRequired,
+	}).isRequired,
+	getAbout: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ about }) => ({
 	about,

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getFeeds } from 'reducers/feeds';
 import StackGrid from 'react-stack-grid';
@@ -11,33 +12,33 @@ import Header from 'Components/Header';
 class Feeds extends React.PureComponent {
 	constructor(props) {
 		super(props);
-		if (!this.props.feeds.loaded) this.props.getFeeds();
+		if (!this.props.feeds.isLoaded) this.props.getFeeds();
 	}
 
 	getItems() {
-		return this.props.feeds.map(item => <GridItem key={item.created_at} data={item} />);
+		return this.props.feeds.map(item => <GridItem data={item} key={item.created_at} />);
 	}
 
 	render() {
-		const { header, caption, loaded } = this.props;
+		const { header, caption, isLoaded } = this.props;
 
-		if (!loaded) return null;
+		if (!isLoaded) return null;
 
 		return (
 			<>
-				<HeaderImage src={header} caption={caption} />
+				<HeaderImage caption={caption} src={header} />
 
 				<Section className="feeds content">
 					<Article className="feeds__article">
-						<Header className="introduction__head" subhead="Feeds" headline="My sharings" />
+						<Header className="introduction__head" headline="My sharings" subhead="Feeds" />
 						<StackGrid
-							columnWidth={279}
-							gutterWidth={25}
-							gutterHeight={25}
 							appearDelay={150}
+							columnWidth={279}
 							duration={200}
-							monitorImagesLoaded
 							gridRef={grid => (this.grid = grid)}
+							gutterHeight={25}
+							gutterWidth={25}
+							monitorImagesLoaded
 						>
 							{this.getItems()}
 						</StackGrid>
@@ -47,6 +48,19 @@ class Feeds extends React.PureComponent {
 		);
 	}
 }
+
+Feeds.propTypes = {
+	isLoaded: PropTypes.bool.isRequired,
+	header: PropTypes.string.isRequired,
+	getFeeds: PropTypes.func.isRequired,
+	feeds: PropTypes.array,
+	caption: PropTypes.string,
+};
+
+Feeds.defaultProps = {
+	feeds: [],
+	caption: null,
+};
 
 const mapStateToProps = ({ feeds }) => ({
 	feeds: feeds.data,

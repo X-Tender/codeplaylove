@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleMenu } from 'reducers/menu';
 
-export class Burger extends Component {
-	state = { open: false };
-
+class Burger extends Component {
 	constructor(props) {
 		super(props);
 		this.onMenuButtonClick = ::this.onMenuButtonClick;
@@ -15,9 +14,9 @@ export class Burger extends Component {
 	}
 
 	render() {
-		const classes = `burger ${this.props.open ? 'isOpen' : ''}`;
+		const classes = `burger ${this.props.isOpen ? 'isOpen' : ''}`;
 		return (
-			<button onClick={this.onMenuButtonClick} className={classes} type="button" title="Menu">
+			<button className={classes} onClick={this.onMenuButtonClick} title="Menu" type="button">
 				<span className="burger__line burger__line--top" />
 				<span className="burger__line burger__line--center" />
 				<span className="burger__line burger__line--bottom" />
@@ -26,12 +25,24 @@ export class Burger extends Component {
 	}
 }
 
+Burger.propTypes = {
+	isOpen: PropTypes.bool,
+	toggleMenu: PropTypes.func.isRequired,
+};
+
+Burger.defaultProps = {
+	isOpen: false,
+};
+
 const mapStateToProps = ({ menu }) => ({
-	open: menu.open,
+	isOpen: menu.isOpen,
 });
 
 const mapDispatchToProps = {
 	toggleMenu,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Burger);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Burger);

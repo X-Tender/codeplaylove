@@ -1,21 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getSocialLinks } from 'reducers/socialLinks';
 
 const SocialLinkItem = ({ url, iconName, children }) => (
 	<li className="social-links__list-item">
 		<a
-			target="_blank"
-			rel="noopener noreferrer"
+			className="social-links__link"
 			href={url}
 			name={children}
-			className="social-links__link"
+			rel="noopener noreferrer"
+			target="_blank"
 			title={children}
 		>
 			<i className={`fab fa-${iconName} fa-3x`} />
 		</a>
 	</li>
 );
+
+SocialLinkItem.propTypes = {
+	url: PropTypes.string.isRequired,
+	iconName: PropTypes.string.isRequired,
+	children: PropTypes.string.isRequired,
+};
 
 class SocialLinks extends React.Component {
 	constructor(props) {
@@ -29,7 +36,7 @@ class SocialLinks extends React.Component {
 		if (!loaded) return null;
 
 		const socialLinks = data.map(({ id, name, url, icon_name }) => (
-			<SocialLinkItem key={id} url={url} iconName={icon_name}>
+			<SocialLinkItem iconName={icon_name} key={id} url={url}>
 				{name}
 			</SocialLinkItem>
 		));
@@ -37,6 +44,14 @@ class SocialLinks extends React.Component {
 		return <ul className="social-links">{socialLinks}</ul>;
 	}
 }
+
+SocialLinks.propTypes = {
+	socialLinks: PropTypes.shape({
+		loaded: PropTypes.bool.isRequired,
+		data: PropTypes.array.isRequired,
+	}).isRequired,
+	getSocialLinks: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ socialLinks }) => ({ socialLinks });
 

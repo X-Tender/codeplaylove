@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HeaderImage = ({ src, pixelate, caption }) => (
+const HeaderImage = ({ src, isPixelated, caption }) => (
 	<div className="header-image">
 		<img
-			className={`header-image__img ${pixelate ? 'header-image__img--pixelate' : ''}`}
+			className={`header-image__img ${isPixelated ? 'header-image__img--pixelate' : ''}`}
 			src={src}
 		/>
 		{caption && <span className="header-image__caption">{caption}</span>}
@@ -13,12 +13,13 @@ const HeaderImage = ({ src, pixelate, caption }) => (
 
 HeaderImage.propTypes = {
 	src: PropTypes.string.isRequired,
-	pixelate: PropTypes.bool,
+	isPixelated: PropTypes.bool,
 	caption: PropTypes.string,
 };
 
 HeaderImage.defaultProps = {
-	pixelate: false,
+	isPixelated: false,
+	caption: null,
 };
 
 export default HeaderImage;

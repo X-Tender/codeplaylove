@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import convert from 'htmr';
 import Header from 'Components/Header';
@@ -16,9 +17,9 @@ class DetailedIntroduction extends PureComponent {
 		return (
 			<Section>
 				<Article className="introduction__content--noImage">
-					<Header subhead={subhead} headline={head} />
+					<Header headline={head} subhead={subhead} />
 
-					<Text twoColumns>
+					<Text hasTwoColumns>
 						{convert(copy, {
 							transform: {
 								p: P,
@@ -31,6 +32,15 @@ class DetailedIntroduction extends PureComponent {
 		);
 	}
 }
+
+DetailedIntroduction.propTypes = {
+	data: PropTypes.shape({
+		loaded: PropTypes.bool.isRequired,
+		subhead: PropTypes.string.isRequired,
+		head: PropTypes.string.isRequired,
+		copy: PropTypes.string.isRequired,
+	}).isRequired,
+};
 
 const mapStateToProps = ({ detailedIntroduction }) => ({
 	data: detailedIntroduction,

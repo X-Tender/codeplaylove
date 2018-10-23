@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import convert from 'htmr';
 import { connect } from 'react-redux';
 import { getPrivacy } from 'reducers/privacy';
@@ -24,10 +25,10 @@ class Privacy extends React.Component {
 
 		return (
 			<>
-				<HeaderImage src={header} caption={caption} />
+				<HeaderImage caption={caption} src={header} />
 				<Section>
 					<Article>
-						<Header subhead={subhead} headline={head} />
+						<Header headline={head} subhead={subhead} />
 
 						<Text>
 							{convert(copy, {
@@ -43,6 +44,19 @@ class Privacy extends React.Component {
 		);
 	}
 }
+
+Privacy.propTypes = {
+	privacy: PropTypes.shape({
+		loaded: PropTypes.bool.isRequired,
+		head: PropTypes.string.isRequired,
+		subhead: PropTypes.string.isRequired,
+		copy: PropTypes.string.isRequired,
+		header: PropTypes.string.isRequired,
+		caption: PropTypes.string,
+	}).isRequired,
+	getPrivacy: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = ({ privacy }) => ({ privacy });
 
 export default connect(

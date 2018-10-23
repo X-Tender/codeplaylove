@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import convert from 'htmr';
 import { getCards } from 'reducers/cards';
@@ -16,6 +17,12 @@ const CodePlayLoveCard = ({ title, children, style }) => (
 	</li>
 );
 
+CodePlayLoveCard.propTypes = {
+	title: PropTypes.string.isRequired,
+	children: PropTypes.node.isRequired,
+	style: PropTypes.string.isRequired,
+};
+
 class CodePlayLoveCards extends PureComponent {
 	constructor(props) {
 		super(props);
@@ -27,7 +34,7 @@ class CodePlayLoveCards extends PureComponent {
 		const cardsData = this.props.cards.data;
 
 		const cards = cardsData.sort((a, b) => a.sort - b.sort).map(({ id, title, copy, style }) => (
-			<CodePlayLoveCard key={id} title={title} style={style}>
+			<CodePlayLoveCard key={id} style={style} title={title}>
 				{copy &&
 					convert(copy, {
 						transform: {
@@ -45,6 +52,13 @@ class CodePlayLoveCards extends PureComponent {
 		);
 	}
 }
+
+CodePlayLoveCards.propTypes = {
+	cards: PropTypes.shape({
+		data: PropTypes.array.isRequired,
+	}).isRequired,
+	getCards: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ cards }) => ({
 	cards,

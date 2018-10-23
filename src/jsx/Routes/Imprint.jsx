@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import convert from 'htmr';
 import { connect } from 'react-redux';
 import { getImprint } from 'reducers/imprint';
@@ -25,10 +26,10 @@ class Imprint extends React.Component {
 
 		return (
 			<>
-				<HeaderImage src={header} caption={caption} />
+				<HeaderImage caption={caption} src={header} />
 				<Section>
 					<Article>
-						<Header subhead={subhead} headline={head} />
+						<Header headline={head} subhead={subhead} />
 
 						<Text>
 							{convert(copy, {
@@ -43,7 +44,7 @@ class Imprint extends React.Component {
 
 				<Section>
 					<Article>
-						<Header subhead={credits.subhead} headline={credits.head} />
+						<Header headline={credits.head} subhead={credits.subhead} />
 						<Text>
 							{convert(credits.copy, {
 								transform: {
@@ -58,6 +59,19 @@ class Imprint extends React.Component {
 		);
 	}
 }
+
+Imprint.propTypes = {
+	imprint: PropTypes.shape({
+		loaded: PropTypes.bool.isRequired,
+		head: PropTypes.string.isRequired,
+		subhead: PropTypes.string.isRequired,
+		copy: PropTypes.string.isRequired,
+		header: PropTypes.string.isRequired,
+		caption: PropTypes.string,
+	}).isRequired,
+	credits: PropTypes.string.isRequired,
+	getImprint: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ imprint, credits }) => ({
 	imprint,

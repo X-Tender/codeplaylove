@@ -1,4 +1,5 @@
 import { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 export default class DynamicRoute extends PureComponent {
 	state = {
@@ -17,3 +18,8 @@ export default class DynamicRoute extends PureComponent {
 		return this.props.children(this.state.component);
 	}
 }
+
+DynamicRoute.propTypes = {
+	load: PropTypes.func.isRequired,
+	children: PropTypes.number.isRequired,
+};

@@ -1,27 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MaskedSVG = ({ text, type, color }) => (
-	<svg className="title__svg" width="100%" height="100%">
+	<svg className="title__svg" height="100%" width="100%">
 		<rect
 			className="knockout-text-bg"
-			width="100%"
-			height="100%"
 			fill={color}
+			fillOpacity="0.4"
+			height="100%"
+			mask={`url(#knockout-text-${type})`}
+			width="100%"
 			x="0"
 			y="0"
-			fillOpacity="0.4"
-			mask={`url(#knockout-text-${type})`}
 		/>
 
 		<mask className="title__mask" id={`knockout-text-${type}`}>
-			<rect width="100%" height="100%" fill="#FFF" x="0" y="0" />
+			<rect fill="#FFF" height="100%" width="100%" x="0" y="0" />
 			<text
+				alignmentBaseline="central"
+				dominantBaseline="central"
+				fill="#000"
+				textAnchor="middle"
 				x="50%"
 				y="50%"
-				fill="#000"
-				dominantBaseline="central"
-				alignmentBaseline="central"
-				textAnchor="middle"
 			>
 				{text}
 			</text>
@@ -29,19 +30,25 @@ const MaskedSVG = ({ text, type, color }) => (
 	</svg>
 );
 
+MaskedSVG.propTypes = {
+	text: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired,
+	color: PropTypes.string.isRequired,
+};
+
 const Code = () => (
 	<span className="title__text title__text--code">
-		<MaskedSVG text="code" type="code" color="#8ac926" />
+		<MaskedSVG color="#8ac926" text="code" type="code" />
 	</span>
 );
 const Play = () => (
 	<span className="title__text title__text--play">
-		<MaskedSVG text="PLAY" type="play" color="#2e84d1" />
+		<MaskedSVG color="#2e84d1" text="PLAY" type="play" />
 	</span>
 );
 const Love = () => (
 	<span className="title__text title__text--love">
-		<MaskedSVG text="love" type="love" color="#fc5053" />
+		<MaskedSVG color="#fc5053" text="love" type="love" />
 	</span>
 );
 

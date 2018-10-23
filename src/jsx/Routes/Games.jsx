@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getGames } from 'reducers/games';
 import convert from 'htmr';
@@ -21,7 +22,7 @@ class Games extends React.Component {
 
 	get floppys() {
 		return this.props.games.gameList.map(({ id, name, slug, cover }) => (
-			<Floppy key={id} to={`/games/${slug}`} cover={cover}>
+			<Floppy cover={cover} key={id} to={`/games/${slug}`}>
 				{name}
 			</Floppy>
 		));
@@ -33,10 +34,10 @@ class Games extends React.Component {
 
 		return (
 			<>
-				<HeaderImage src={header} caption={caption} />
+				<HeaderImage caption={caption} src={header} />
 				<Section>
 					<Article>
-						<Header subhead={subhead} headline={head} />
+						<Header headline={head} subhead={subhead} />
 						<Text>
 							{convert(copy, {
 								transform: {
@@ -55,6 +56,19 @@ class Games extends React.Component {
 		);
 	}
 }
+
+Games.propTypes = {
+	games: PropTypes.shape({
+		loaded: PropTypes.bool.isRequired,
+		head: PropTypes.string.isRequired,
+		subhead: PropTypes.string.isRequired,
+		copy: PropTypes.string.isRequired,
+		header: PropTypes.string.isRequired,
+		gameList: PropTypes.array,
+		caption: PropTypes.string,
+	}).isRequired,
+	getGames: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ games }) => ({
 	games,
