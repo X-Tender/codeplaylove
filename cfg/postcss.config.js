@@ -46,7 +46,6 @@ const settings = ctx => ({
 		},
 		'postcss-will-change': {},
 		'postcss-nested': {},
-		'postcss-random': {},
 		'postcss-calc': {
 			warnWhenCannotResolve: false,
 			mediaQueries: true,
@@ -54,7 +53,6 @@ const settings = ctx => ({
 		'postcss-initial': {},
 		'postcss-input-style': {},
 		'postcss-easings': {},
-		'postcss-mesh': {},
 		autoprefixer: {
 			browsers,
 		},
