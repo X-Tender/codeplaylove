@@ -17,10 +17,11 @@
 		"process": true,
 		"gtag": true
 	},
-	"plugins": ["react"],
+	"plugins": ["react", "babel"],
 	"env": {
 		"browser": true,
-		"es6": true
+		"es6": true,
+		"jasmine": true
 	},
 	"extends": ["plugin:react/recommended"],
 	"rules": {
@@ -136,13 +137,7 @@
 		"no-loop-func": 2,
 		"no-multi-str": 2,
 		"no-native-reassign": 2,
-		"no-unused-expressions": [
-			2,
-			{
-				"allowTernary": true,
-				"allowShortCircuit": true
-			}
-		],
+		"no-unused-expressions": 0,
 		"no-throw-literal": 2,
 		"no-sequences": 2,
 		"no-self-compare": 2,
@@ -274,7 +269,7 @@
 		"no-nested-ternary": 1,
 		"new-parens": 1,
 		"semi": [1, "always"],
-		"quotes": [1, "single", "avoid-escape"],
+		"quotes": 0,
 		"operator-linebreak": [
 			1,
 			"after",
@@ -321,6 +316,15 @@
 		"react/jsx-closing-bracket-location": 0,
 		"react/jsx-pascal-case": 1,
 		"react/self-closing-comp": 1,
-		"react/no-danger": 1
+		"react/no-danger": 1,
+
+		"babel/quotes": [1, "single", "avoid-escape"],
+		"babel/no-unused-expressions": [
+			2,
+			{
+				"allowTernary": true,
+				"allowShortCircuit": true
+			}
+		]
 	}
 }
