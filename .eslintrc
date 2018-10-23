@@ -14,8 +14,6 @@
 		"require": false,
 		"__dirname": false,
 		"module": false,
-		"Bugsnag": true,
-		"$": true,
 		"process": true,
 		"gtag": true
 	},
