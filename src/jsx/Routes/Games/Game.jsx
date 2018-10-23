@@ -44,7 +44,7 @@ class Game extends React.Component {
 		if (!loaded) return null;
 
 		return (
-			<React.Fragment>
+			<>
 				<HeaderImage src={header} pixelate />
 				<Section>
 					<Article>
@@ -69,7 +69,7 @@ class Game extends React.Component {
 					</Article>
 				</Section>
 				<Section />
-			</React.Fragment>
+			</>
 		);
 	}
 }

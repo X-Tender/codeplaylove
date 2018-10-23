@@ -54,7 +54,7 @@ const Game = props => (
 const App = () => (
 	<Provider store={store}>
 		<ConnectedRouter history={history}>
-			<React.Fragment>
+			<>
 				<Navigation />
 				<main>
 					<Route exact path="/" component={Home} />
@@ -66,7 +66,7 @@ const App = () => (
 					<Route path="/games/:gameSlug" component={Game} />
 				</main>
 				<Footer />
-			</React.Fragment>
+			</>
 		</ConnectedRouter>
 	</Provider>
 );

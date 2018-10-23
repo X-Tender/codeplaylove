@@ -24,7 +24,7 @@ class Imprint extends React.Component {
 		if (!loaded) return null;
 
 		return (
-			<React.Fragment>
+			<>
 				<HeaderImage src={header} caption={caption} />
 				<Section>
 					<Article>
@@ -54,7 +54,7 @@ class Imprint extends React.Component {
 						</Text>
 					</Article>
 				</Section>
-			</React.Fragment>
+			</>
 		);
 	}
 }

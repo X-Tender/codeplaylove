@@ -24,7 +24,7 @@ class Feeds extends React.PureComponent {
 		if (!loaded) return null;
 
 		return (
-			<React.Fragment>
+			<>
 				<HeaderImage src={header} caption={caption} />
 
 				<Section className="feeds content">
@@ -43,7 +43,7 @@ class Feeds extends React.PureComponent {
 						</StackGrid>
 					</Article>
 				</Section>
-			</React.Fragment>
+			</>
 		);
 	}
 }

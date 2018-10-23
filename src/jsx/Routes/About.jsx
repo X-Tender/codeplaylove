@@ -19,12 +19,12 @@ class About extends PureComponent {
 		if (!loaded) return null;
 
 		return (
-			<React.Fragment>
+			<>
 				<HeaderImage src={header} />
 				<DetailedIntroduction />
 				<Skills />
 				<Uses />
-			</React.Fragment>
+			</>
 		);
 	}
 }

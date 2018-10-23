@@ -32,7 +32,7 @@ class Games extends React.Component {
 		if (!loaded) return null;
 
 		return (
-			<React.Fragment>
+			<>
 				<HeaderImage src={header} caption={caption} />
 				<Section>
 					<Article>
@@ -51,7 +51,7 @@ class Games extends React.Component {
 				<Section>
 					<Article className="floppy-container">{this.floppys}</Article>
 				</Section>
-			</React.Fragment>
+			</>
 		);
 	}
 }
