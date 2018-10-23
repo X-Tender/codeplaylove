@@ -43,6 +43,9 @@
 				"@babel/plugin-transform-object-assign",
 				"@babel/plugin-transform-react-constant-elements"
 			]
+		},
+		"test": {
+			"plugins": ["@babel/plugin-transform-modules-commonjs"]
 		}
 	}
 }
