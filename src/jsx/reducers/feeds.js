@@ -3,7 +3,7 @@ import HTTP from 'Utils/HTTP';
 const GET_FEEDS = 'feeds/GET_FEEDS';
 
 const initialState = {
-	loaded: false,
+	isLoaded: false,
 	data: [],
 	title: '',
 	header: '',
@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
 		case GET_FEEDS:
 			return {
 				...state,
-				loaded: true,
+				isLoaded: true,
 				...payload.feeds,
 				data: payload.posts,
 			};
