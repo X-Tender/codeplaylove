@@ -16,7 +16,9 @@
     "start:hidden": "npm-run-all --parallel style code:hidden",
     "svgo": "svgo -f src/svg/ --pretty --config cfg/svgo.config.json",
     "icon-font-generator": "icon-font-generator src/svg/*svg -o public/assets/fonts/slim-icon-font --html false --csstp src/handlebars/icon-font-css.hbs -f ../fonts/slim-icon-font/ --name slim-icon-font --normalize --csspath src/scss/settings/slim-icon-font.scss --j false",
-    "icon-font": "npm-run-all svgo icon-font-generator"
+    "icon-font": "npm-run-all svgo icon-font-generator",
+    "test": "NODE_ENV=test jest --watch",
+    "test:coverage": "NODE_ENV=test jest --coverage"
   },
   "author": "Paul Kamma",
   "license": "ISC",
