@@ -20,6 +20,9 @@ public/assets/fonts/slim-icon-font/*
 !public/assets/css/*.min.css
 !public/assets/css/vendor/*
 
+/coverage/
+/coverage.data/
+
 *.log
 *.map
 composer.phar
