@@ -10,6 +10,15 @@ import Section from 'Semantics/Section';
 import Article from 'Semantics/Article';
 
 class DetailedIntroduction extends PureComponent {
+	static propTypes = {
+		data: PropTypes.shape({
+			loaded: PropTypes.bool.isRequired,
+			subhead: PropTypes.string.isRequired,
+			head: PropTypes.string.isRequired,
+			copy: PropTypes.string.isRequired,
+		}).isRequired,
+	};
+
 	render() {
 		const { loaded, subhead, head, copy } = this.props.data;
 		if (!loaded) return null;
@@ -32,15 +41,6 @@ class DetailedIntroduction extends PureComponent {
 		);
 	}
 }
-
-DetailedIntroduction.propTypes = {
-	data: PropTypes.shape({
-		loaded: PropTypes.bool.isRequired,
-		subhead: PropTypes.string.isRequired,
-		head: PropTypes.string.isRequired,
-		copy: PropTypes.string.isRequired,
-	}).isRequired,
-};
 
 const mapStateToProps = ({ detailedIntroduction }) => ({
 	data: detailedIntroduction,

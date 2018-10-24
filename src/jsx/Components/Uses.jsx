@@ -1,34 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import Section from 'Semantics/Section';
 import Article from 'Semantics/Article';
 import Header from 'Components/Header';
-import A from 'Semantics/A';
+import UsesListItem from './UsesListItem';
 
-const ListItem = ({ link, children }) => (
-	<li className="uses__list-item">
-		{link ? (
-			<A href={link} target="_blank">
-				{children}
-			</A>
-		) : (
-			children
-		)}
-	</li>
-);
+class Uses extends Component {
+	static propTypes = {
+		data: PropTypes.shape({
+			loaded: PropTypes.bool.isRequired,
+			toolset: PropTypes.shape({
+				toolgroups: PropTypes.array.isRequired,
+			}).isRequired,
+		}).isRequired,
+	};
 
-ListItem.propTypes = {
-	children: PropTypes.string.isRequired,
-	link: PropTypes.string,
-};
-
-ListItem.defaultProps = {
-	link: null,
-};
-
-class Tools extends Component {
 	shuffle(a) {
 		for (let i = a.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
@@ -39,9 +26,9 @@ class Tools extends Component {
 
 	getShuffledTools(tools) {
 		return this.shuffle(tools).map(tool => (
-			<ListItem key={tool.id} link={tool.url}>
+			<UsesListItem key={tool.id} link={tool.url}>
 				{tool.name}
-			</ListItem>
+			</UsesListItem>
 		));
 	}
 
@@ -75,17 +62,8 @@ class Tools extends Component {
 	}
 }
 
-Tools.propTypes = {
-	data: PropTypes.shape({
-		loaded: PropTypes.bool.isRequired,
-		toolset: PropTypes.shape({
-			toolgroups: PropTypes.array.isRequired,
-		}).isRequired,
-	}).isRequired,
-};
-
 const mapStateToProps = ({ tools }) => ({
 	data: tools,
 });
 
-export default connect(mapStateToProps)(Tools);
+export default connect(mapStateToProps)(Uses);

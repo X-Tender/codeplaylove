@@ -1,12 +1,22 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import Section from 'Semantics/Section';
 import Article from 'Semantics/Article';
 import Header from 'Components/Header';
 
 class Skills extends PureComponent {
+	static propTypes = {
+		data: PropTypes.shape({
+			skillset: PropTypes.shape({
+				skills: PropTypes.array.isRequired,
+				loaded: PropTypes.bool.isRequired,
+				subhead: PropTypes.string.isRequired,
+				head: PropTypes.string.isRequired,
+			}),
+		}).isRequired,
+	};
+
 	shuffle(a) {
 		for (let i = a.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
@@ -41,17 +51,6 @@ class Skills extends PureComponent {
 		);
 	}
 }
-
-Skills.propTypes = {
-	data: PropTypes.shape({
-		skillset: PropTypes.shape({
-			skills: PropTypes.array.isRequired,
-			loaded: PropTypes.bool.isRequired,
-			subhead: PropTypes.string.isRequired,
-			head: PropTypes.string.isRequired,
-		}),
-	}).isRequired,
-};
 
 const mapStateToProps = ({ skills }) => ({
 	data: skills,

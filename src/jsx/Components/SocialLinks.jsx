@@ -2,27 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getSocialLinks } from 'reducers/socialLinks';
-
-const SocialLinkItem = ({ url, iconName, children }) => (
-	<li className="social-links__list-item">
-		<a
-			className="social-links__link"
-			href={url}
-			name={children}
-			rel="noopener noreferrer"
-			target="_blank"
-			title={children}
-		>
-			<i className={`fab fa-${iconName} fa-3x`} />
-		</a>
-	</li>
-);
-
-SocialLinkItem.propTypes = {
-	url: PropTypes.string.isRequired,
-	iconName: PropTypes.string.isRequired,
-	children: PropTypes.string.isRequired,
-};
+import SocialLinkItem from './SocialLinkItem';
 
 class SocialLinks extends React.Component {
 	constructor(props) {

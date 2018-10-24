@@ -12,6 +12,18 @@ import P from 'Semantics/P';
 import A from 'Semantics/A';
 
 class Privacy extends React.Component {
+	static propTypes = {
+		privacy: PropTypes.shape({
+			loaded: PropTypes.bool.isRequired,
+			head: PropTypes.string.isRequired,
+			subhead: PropTypes.string.isRequired,
+			copy: PropTypes.string.isRequired,
+			header: PropTypes.string.isRequired,
+			caption: PropTypes.string,
+		}).isRequired,
+		getPrivacy: PropTypes.func.isRequired,
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -44,18 +56,6 @@ class Privacy extends React.Component {
 		);
 	}
 }
-
-Privacy.propTypes = {
-	privacy: PropTypes.shape({
-		loaded: PropTypes.bool.isRequired,
-		head: PropTypes.string.isRequired,
-		subhead: PropTypes.string.isRequired,
-		copy: PropTypes.string.isRequired,
-		header: PropTypes.string.isRequired,
-		caption: PropTypes.string,
-	}).isRequired,
-	getPrivacy: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = ({ privacy }) => ({ privacy });
 

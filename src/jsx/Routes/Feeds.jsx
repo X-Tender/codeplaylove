@@ -10,6 +10,19 @@ import Article from 'Semantics/Article';
 import Header from 'Components/Header';
 
 class Feeds extends React.PureComponent {
+	static propTypes = {
+		isLoaded: PropTypes.bool.isRequired,
+		header: PropTypes.string.isRequired,
+		getFeeds: PropTypes.func.isRequired,
+		feeds: PropTypes.array,
+		caption: PropTypes.string,
+	};
+
+	static defaultProps = {
+		feeds: [],
+		caption: null,
+	};
+
 	constructor(props) {
 		super(props);
 		if (!this.props.feeds.isLoaded) this.props.getFeeds();
@@ -48,19 +61,6 @@ class Feeds extends React.PureComponent {
 		);
 	}
 }
-
-Feeds.propTypes = {
-	isLoaded: PropTypes.bool.isRequired,
-	header: PropTypes.string.isRequired,
-	getFeeds: PropTypes.func.isRequired,
-	feeds: PropTypes.array,
-	caption: PropTypes.string,
-};
-
-Feeds.defaultProps = {
-	feeds: [],
-	caption: null,
-};
 
 const mapStateToProps = ({ feeds }) => ({
 	feeds: feeds.data,

@@ -11,6 +11,17 @@ import P from 'Semantics/P';
 import A from 'Semantics/A';
 
 class Introduction extends PureComponent {
+	static propTypes = {
+		introduction: PropTypes.shape({
+			copy: PropTypes.string.isRequired,
+			head: PropTypes.string.isRequired,
+			image: PropTypes.string.isRequired,
+			punchline: PropTypes.string.isRequired,
+			subhead: PropTypes.string.isRequired,
+		}).isRequired,
+		getIntroduction: PropTypes.func.isRequired,
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -70,17 +81,6 @@ class Introduction extends PureComponent {
 		);
 	}
 }
-
-Introduction.propTypes = {
-	introduction: PropTypes.shape({
-		copy: PropTypes.string.isRequired,
-		head: PropTypes.string.isRequired,
-		image: PropTypes.string.isRequired,
-		punchline: PropTypes.string.isRequired,
-		subhead: PropTypes.string.isRequired,
-	}).isRequired,
-	getIntroduction: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = ({ introduction }) => ({
 	introduction,

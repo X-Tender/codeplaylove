@@ -6,24 +6,16 @@ import { getCards } from 'reducers/cards';
 import Section from 'Semantics/Section';
 import P from 'Semantics/P';
 import A from 'Semantics/A';
-
-const CodePlayLoveCard = ({ title, children, style }) => (
-	<li className={`code-play-love-card code-play-love-card--${style}`}>
-		<div className={`code-play-love-card__icon code-play-love-card__icon--${style}`} />
-		<div className="code-play-love-card__content">
-			<h3 className="code-play-love-card__head">{title}</h3>
-			{children}
-		</div>
-	</li>
-);
-
-CodePlayLoveCard.propTypes = {
-	title: PropTypes.string.isRequired,
-	children: PropTypes.node.isRequired,
-	style: PropTypes.string.isRequired,
-};
+import CodePlayLoveCard from './CodePlayLoveCard';
 
 class CodePlayLoveCards extends PureComponent {
+	static propTypes = {
+		cards: PropTypes.shape({
+			data: PropTypes.array.isRequired,
+		}).isRequired,
+		getCards: PropTypes.func.isRequired,
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -52,13 +44,6 @@ class CodePlayLoveCards extends PureComponent {
 		);
 	}
 }
-
-CodePlayLoveCards.propTypes = {
-	cards: PropTypes.shape({
-		data: PropTypes.array.isRequired,
-	}).isRequired,
-	getCards: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = ({ cards }) => ({
 	cards,

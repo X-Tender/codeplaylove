@@ -1,6 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const propTypes = {
+	src: PropTypes.string.isRequired,
+	isPixelated: PropTypes.bool,
+	caption: PropTypes.string,
+};
+
+const defaultProps = {
+	isPixelated: false,
+	caption: null,
+};
+
 const HeaderImage = ({ src, isPixelated, caption }) => (
 	<div className="header-image">
 		<img
@@ -11,15 +22,7 @@ const HeaderImage = ({ src, isPixelated, caption }) => (
 	</div>
 );
 
-HeaderImage.propTypes = {
-	src: PropTypes.string.isRequired,
-	isPixelated: PropTypes.bool,
-	caption: PropTypes.string,
-};
-
-HeaderImage.defaultProps = {
-	isPixelated: false,
-	caption: null,
-};
+HeaderImage.propTypes = propTypes;
+HeaderImage.defaultProps = defaultProps;
 
 export default HeaderImage;

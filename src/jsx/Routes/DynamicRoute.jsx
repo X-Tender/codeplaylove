@@ -1,7 +1,12 @@
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-export default class DynamicRoute extends PureComponent {
+class DynamicRoute extends PureComponent {
+	static propTypes = {
+		load: PropTypes.func.isRequired,
+		children: PropTypes.number.isRequired,
+	};
+
 	state = {
 		component: null,
 	};
@@ -19,7 +24,4 @@ export default class DynamicRoute extends PureComponent {
 	}
 }
 
-DynamicRoute.propTypes = {
-	load: PropTypes.func.isRequired,
-	children: PropTypes.number.isRequired,
-};
+export default DynamicRoute;

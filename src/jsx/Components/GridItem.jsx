@@ -2,6 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class GridItem extends React.PureComponent {
+	static propTypes = {
+		data: PropTypes.shape({
+			source: PropTypes.string.isRequired,
+			text: PropTypes.string.isRequired,
+			image: PropTypes.string.isRequired,
+			url: PropTypes.string.isRequired,
+			comments: PropTypes.number.isRequired,
+			likes: PropTypes.number.isRequired,
+		}).isRequired,
+	};
+
 	constructor(props) {
 		super(props);
 	}
@@ -86,16 +97,5 @@ class GridItem extends React.PureComponent {
 		);
 	}
 }
-
-GridItem.propTypes = {
-	data: PropTypes.shape({
-		source: PropTypes.string.isRequired,
-		text: PropTypes.string.isRequired,
-		image: PropTypes.string.isRequired,
-		url: PropTypes.string.isRequired,
-		comments: PropTypes.number.isRequired,
-		likes: PropTypes.number.isRequired,
-	}).isRequired,
-};
 
 export default GridItem;

@@ -14,4 +14,5 @@ const Hero = () => (
 		<Title />
 	</section>
 );
+
 export default Hero;

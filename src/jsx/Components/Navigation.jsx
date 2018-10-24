@@ -1,35 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-
+import NavigationItem from './NavigationItem';
 import Burger from './Burger';
 
-const NavigItem = ({ children, to, style }) => (
-	<li className="navigation__list-item">
-		<i className={`fas fa-${style}`} />
-		<NavLink
-			activeClassName="navigation__link--active"
-			className={`navigation__link navigation__link--${style}`}
-			exact
-			to={to}
-		>
-			{children}
-		</NavLink>
-	</li>
-);
-
-NavigItem.propTypes = {
-	children: PropTypes.node,
-	to: PropTypes.string.isRequired,
-	style: PropTypes.string.isRequired,
-};
-
-NavigItem.defaultProps = {
-	children: null,
-};
-
 class Navigation extends Component {
+	static propTypes = {
+		isOpen: PropTypes.bool,
+	};
+
+	static defaultProps = {
+		isOpen: false,
+	};
+
 	render() {
 		const classes = `navigation ${this.props.isOpen ? 'isOpen' : ''}`;
 		return (
@@ -41,31 +24,23 @@ class Navigation extends Component {
 					<span className="navigation__title-word navigation__title-word--love">Love</span>
 				</h1>
 				<ul className="navigation__list">
-					<NavigItem style="home" to="/">
+					<NavigationItem style="home" to="/">
 						Home
-					</NavigItem>
-					<NavigItem style="user-circle" to="/about">
+					</NavigationItem>
+					<NavigationItem style="user-circle" to="/about">
 						About
-					</NavigItem>
-					<NavigItem style="comment" to="/feeds">
+					</NavigationItem>
+					<NavigationItem style="comment" to="/feeds">
 						Feeds
-					</NavigItem>
-					<NavigItem style="gamepad" to="/games">
+					</NavigationItem>
+					<NavigationItem style="gamepad" to="/games">
 						Games
-					</NavigItem>
+					</NavigationItem>
 				</ul>
 			</nav>
 		);
 	}
 }
-
-Navigation.propTypes = {
-	isOpen: PropTypes.bool,
-};
-
-Navigation.defaultProps = {
-	isOpen: false,
-};
 
 const mapStateToProps = ({ menu }) => ({
 	isOpen: menu.isOpen,

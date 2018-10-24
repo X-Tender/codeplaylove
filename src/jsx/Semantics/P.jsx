@@ -1,19 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function P({ children, className }) {
-	const classes = `paragraph ${className}`;
-	return <p className={classes}>{children}</p>;
-}
-
-P.propTypes = {
+const propTypes = {
 	children: PropTypes.node,
 	className: PropTypes.string,
 };
 
-P.defaultProps = {
+const defaultProps = {
 	children: null,
 	className: '',
 };
+
+const P = ({ children, className }) => {
+	const classes = `paragraph ${className}`;
+	return <p className={classes}>{children}</p>;
+};
+
+P.propTypes = propTypes;
+P.defaultProps = defaultProps;
 
 export default P;

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getGames } from 'reducers/games';
 import convert from 'htmr';
-
 import HeaderImage from 'Components/HeaderImage';
 import Header from 'Components/Header';
 import Text from 'Components/Text';
@@ -14,6 +13,19 @@ import P from 'Semantics/P';
 import A from 'Semantics/A';
 
 class Games extends React.Component {
+	static propTypes = {
+		games: PropTypes.shape({
+			loaded: PropTypes.bool.isRequired,
+			head: PropTypes.string.isRequired,
+			subhead: PropTypes.string.isRequired,
+			copy: PropTypes.string.isRequired,
+			header: PropTypes.string.isRequired,
+			gameList: PropTypes.array,
+			caption: PropTypes.string,
+		}).isRequired,
+		getGames: PropTypes.func.isRequired,
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -56,19 +68,6 @@ class Games extends React.Component {
 		);
 	}
 }
-
-Games.propTypes = {
-	games: PropTypes.shape({
-		loaded: PropTypes.bool.isRequired,
-		head: PropTypes.string.isRequired,
-		subhead: PropTypes.string.isRequired,
-		copy: PropTypes.string.isRequired,
-		header: PropTypes.string.isRequired,
-		gameList: PropTypes.array,
-		caption: PropTypes.string,
-	}).isRequired,
-	getGames: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = ({ games }) => ({
 	games,

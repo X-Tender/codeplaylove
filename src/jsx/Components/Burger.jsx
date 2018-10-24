@@ -4,6 +4,15 @@ import { connect } from 'react-redux';
 import { toggleMenu } from 'reducers/menu';
 
 class Burger extends Component {
+	static propTypes = {
+		isOpen: PropTypes.bool,
+		toggleMenu: PropTypes.func.isRequired,
+	};
+
+	static defaultProps = {
+		isOpen: false,
+	};
+
 	constructor(props) {
 		super(props);
 		this.onMenuButtonClick = ::this.onMenuButtonClick;
@@ -24,15 +33,6 @@ class Burger extends Component {
 		);
 	}
 }
-
-Burger.propTypes = {
-	isOpen: PropTypes.bool,
-	toggleMenu: PropTypes.func.isRequired,
-};
-
-Burger.defaultProps = {
-	isOpen: false,
-};
 
 const mapStateToProps = ({ menu }) => ({
 	isOpen: menu.isOpen,

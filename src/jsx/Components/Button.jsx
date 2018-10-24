@@ -2,6 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+const propTypes = {
+	to: PropTypes.string.isRequired,
+	children: PropTypes.any,
+	isPrimary: PropTypes.bool,
+	isGhost: PropTypes.bool,
+	isFullWithSm: PropTypes.bool,
+};
+
+const defaultProps = {
+	children: null,
+	isPrimary: false,
+	isGhost: false,
+	isFullWithSm: false,
+};
+
 const Button = ({ children, isPrimary, isGhost, isFullWithSm, to }) => {
 	let style = '';
 
@@ -16,19 +31,7 @@ const Button = ({ children, isPrimary, isGhost, isFullWithSm, to }) => {
 	);
 };
 
-Button.propTypes = {
-	to: PropTypes.string.isRequired,
-	children: PropTypes.any,
-	isPrimary: PropTypes.bool,
-	isGhost: PropTypes.bool,
-	isFullWithSm: PropTypes.bool,
-};
-
-Button.defaultProps = {
-	children: null,
-	isPrimary: false,
-	isGhost: false,
-	isFullWithSm: false,
-};
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
 
 export default Button;

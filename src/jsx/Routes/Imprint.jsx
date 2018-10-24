@@ -12,6 +12,19 @@ import P from 'Semantics/P';
 import A from 'Semantics/A';
 
 class Imprint extends React.Component {
+	static propTypes = {
+		imprint: PropTypes.shape({
+			loaded: PropTypes.bool.isRequired,
+			head: PropTypes.string.isRequired,
+			subhead: PropTypes.string.isRequired,
+			copy: PropTypes.string.isRequired,
+			header: PropTypes.string.isRequired,
+			caption: PropTypes.string,
+		}).isRequired,
+		credits: PropTypes.string.isRequired,
+		getImprint: PropTypes.func.isRequired,
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -59,19 +72,6 @@ class Imprint extends React.Component {
 		);
 	}
 }
-
-Imprint.propTypes = {
-	imprint: PropTypes.shape({
-		loaded: PropTypes.bool.isRequired,
-		head: PropTypes.string.isRequired,
-		subhead: PropTypes.string.isRequired,
-		copy: PropTypes.string.isRequired,
-		header: PropTypes.string.isRequired,
-		caption: PropTypes.string,
-	}).isRequired,
-	credits: PropTypes.string.isRequired,
-	getImprint: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = ({ imprint, credits }) => ({
 	imprint,

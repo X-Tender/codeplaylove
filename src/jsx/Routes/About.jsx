@@ -8,6 +8,14 @@ import Uses from 'Components/Uses';
 import DetailedIntroduction from 'Components/DetailedIntroduction';
 
 class About extends PureComponent {
+	static propTypes = {
+		about: PropTypes.shape({
+			loaded: PropTypes.bool.isRequired,
+			header: PropTypes.string.isRequired,
+		}).isRequired,
+		getAbout: PropTypes.func.isRequired,
+	};
+
 	constructor(props) {
 		super(props);
 
@@ -29,14 +37,6 @@ class About extends PureComponent {
 		);
 	}
 }
-
-About.propTypes = {
-	about: PropTypes.shape({
-		loaded: PropTypes.bool.isRequired,
-		header: PropTypes.string.isRequired,
-	}).isRequired,
-	getAbout: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = ({ about }) => ({
 	about,
