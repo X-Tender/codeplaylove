@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleMenu } from 'reducers/menu';
 
-class Burger extends Component {
+export class Burger extends Component {
 	static propTypes = {
 		isOpen: PropTypes.bool,
 		toggleMenu: PropTypes.func.isRequired,
