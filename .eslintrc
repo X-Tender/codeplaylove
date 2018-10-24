@@ -15,7 +15,8 @@
 		"__dirname": false,
 		"module": false,
 		"process": true,
-		"gtag": true
+		"gtag": true,
+		"jest": true
 	},
 	"plugins": ["react", "babel"],
 	"env": {
