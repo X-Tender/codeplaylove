@@ -7,9 +7,7 @@ ShallowWrapper {
     style="code"
     title="Code"
   >
-    <p>
-      Lorem ipsum
-    </p>
+    This is code
   </CodePlayLoveCard>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -36,9 +34,7 @@ ShallowWrapper {
           >
             Code
           </h3>
-          <p>
-            Lorem ipsum
-          </p>
+          This is code
         </div>,
       ],
       "className": "code-play-love-card code-play-love-card--code",
@@ -67,9 +63,7 @@ ShallowWrapper {
             >
               Code
             </h3>,
-            <p>
-              Lorem ipsum
-            </p>,
+            "This is code",
           ],
           "className": "code-play-love-card__content",
         },
@@ -87,17 +81,7 @@ ShallowWrapper {
             "rendered": "Code",
             "type": "h3",
           },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Lorem ipsum",
-            },
-            "ref": null,
-            "rendered": "Lorem ipsum",
-            "type": "p",
-          },
+          "This is code",
         ],
         "type": "div",
       },
@@ -122,9 +106,7 @@ ShallowWrapper {
             >
               Code
             </h3>
-            <p>
-              Lorem ipsum
-            </p>
+            This is code
           </div>,
         ],
         "className": "code-play-love-card code-play-love-card--code",
@@ -153,9 +135,7 @@ ShallowWrapper {
               >
                 Code
               </h3>,
-              <p>
-                Lorem ipsum
-              </p>,
+              "This is code",
             ],
             "className": "code-play-love-card__content",
           },
@@ -173,17 +153,7 @@ ShallowWrapper {
               "rendered": "Code",
               "type": "h3",
             },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Lorem ipsum",
-              },
-              "ref": null,
-              "rendered": "Lorem ipsum",
-              "type": "p",
-            },
+            "This is code",
           ],
           "type": "div",
         },
