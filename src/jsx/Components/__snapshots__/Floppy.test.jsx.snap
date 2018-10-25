@@ -5,9 +5,9 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Floppy
     cover="uploads/image.jpg"
-    to="/"
+    to="/my-game"
   >
-    Test game
+    My Game
   </Floppy>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -34,8 +34,8 @@ ShallowWrapper {
       ],
       "className": "floppy",
       "replace": false,
-      "title": "Test game",
-      "to": "/",
+      "title": "My Game",
+      "to": "/my-game",
     },
     "ref": null,
     "rendered": Array [
@@ -84,8 +84,8 @@ ShallowWrapper {
         ],
         "className": "floppy",
         "replace": false,
-        "title": "Test game",
-        "to": "/",
+        "title": "My Game",
+        "to": "/my-game",
       },
       "ref": null,
       "rendered": Array [
