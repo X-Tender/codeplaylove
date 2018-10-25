@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { CodePlayLoveCard } from './CodePlayLoveCard';
+import CodePlayLoveCard from './CodePlayLoveCard';
 
 describe('CodePlayLoveCard', () => {
 	const comp = shallow(

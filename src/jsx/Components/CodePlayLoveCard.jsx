@@ -7,7 +7,7 @@ const propTypes = {
 	style: PropTypes.string.isRequired,
 };
 
-export const CodePlayLoveCard = ({ title, children, style }) => (
+const CodePlayLoveCard = ({ title, children, style }) => (
 	<li className={`code-play-love-card code-play-love-card--${style}`}>
 		<div className={`code-play-love-card__icon code-play-love-card__icon--${style}`} />
 		<div className="code-play-love-card__content">
