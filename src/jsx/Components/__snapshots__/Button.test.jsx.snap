@@ -7,7 +7,7 @@ ShallowWrapper {
     isFullWithSm={false}
     isGhost={false}
     isPrimary={false}
-    to="/"
+    to="/target"
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -25,7 +25,7 @@ ShallowWrapper {
       "children": null,
       "className": "button ",
       "replace": false,
-      "to": "/",
+      "to": "/target",
     },
     "ref": null,
     "rendered": null,
@@ -40,7 +40,7 @@ ShallowWrapper {
         "children": null,
         "className": "button ",
         "replace": false,
-        "to": "/",
+        "to": "/target",
       },
       "ref": null,
       "rendered": null,
