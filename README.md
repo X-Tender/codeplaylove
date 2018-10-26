@@ -13,10 +13,13 @@ This is my porfolio I created to tinker around with various web technologies and
 
 **Backend technologies used**
 
- - [slim Framework](https://www.slimframework.com/)
+- [slim Framework](https://www.slimframework.com/)
+- Implement [Directus](https://getdirectus.com/) for content handling
 ----------
-**Future plans**
-Implement [Directus](https://getdirectus.com/) for content handling
+**TODO**
+
+- Implment testing via Jest and enzyme
+- Replace react-redux-router with connected-react-router
 
 ----------
 **Credits**
