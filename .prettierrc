@@ -18,8 +18,8 @@
 		{
 			"files": ["*.scss"],
 			"options": {
-				"parser": "postcss",
-				"printWidth": 900,
+				"parser": "scss",
+				"printWidth": 900
 			}
 		}
 	]
