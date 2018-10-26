@@ -17,7 +17,7 @@ describe('SocialLinkItem', () => {
 		expect(comp).toMatchSnapshot();
 	});
 
-	it('renders correnct props', () => {
+	it('renders correct props', () => {
 		expect(comp.find('li a').prop('href')).toEqual(url);
 		expect(comp.find('li a').prop('name')).toEqual(children);
 		expect(comp.find('li a').prop('title')).toEqual(children);
