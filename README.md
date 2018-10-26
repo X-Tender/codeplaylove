@@ -18,7 +18,7 @@ This is my porfolio I created to tinker around with various web technologies and
 ----------
 **TODO**
 
-- Implment testing via Jest and enzyme
+- Implement testing via Jest and enzyme
 - Replace react-redux-router with connected-react-router
 
 ----------
