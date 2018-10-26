@@ -20,9 +20,24 @@ ShallowWrapper {
       "children": <h1
         className="title__head"
       >
-        <Code />
-        <Play />
-        <Love />
+        <TitleSegment
+          color="#8ac926"
+          type="code"
+        >
+          code
+        </TitleSegment>
+        <TitleSegment
+          color="#2e84d1"
+          type="play"
+        >
+          PLAY
+        </TitleSegment>
+        <TitleSegment
+          color="#fc5053"
+          type="love"
+        >
+          love
+        </TitleSegment>
       </h1>,
       "className": "title",
     },
@@ -33,9 +48,24 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Code />,
-          <Play />,
-          <Love />,
+          <TitleSegment
+            color="#8ac926"
+            type="code"
+          >
+            code
+          </TitleSegment>,
+          <TitleSegment
+            color="#2e84d1"
+            type="play"
+          >
+            PLAY
+          </TitleSegment>,
+          <TitleSegment
+            color="#fc5053"
+            type="love"
+          >
+            love
+          </TitleSegment>,
         ],
         "className": "title__head",
       },
@@ -45,27 +75,39 @@ ShallowWrapper {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {},
+          "props": Object {
+            "children": "code",
+            "color": "#8ac926",
+            "type": "code",
+          },
           "ref": null,
-          "rendered": null,
+          "rendered": "code",
           "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {},
+          "props": Object {
+            "children": "PLAY",
+            "color": "#2e84d1",
+            "type": "play",
+          },
           "ref": null,
-          "rendered": null,
+          "rendered": "PLAY",
           "type": [Function],
         },
         Object {
           "instance": null,
           "key": undefined,
           "nodeType": "function",
-          "props": Object {},
+          "props": Object {
+            "children": "love",
+            "color": "#fc5053",
+            "type": "love",
+          },
           "ref": null,
-          "rendered": null,
+          "rendered": "love",
           "type": [Function],
         },
       ],
@@ -82,9 +124,24 @@ ShallowWrapper {
         "children": <h1
           className="title__head"
         >
-          <Code />
-          <Play />
-          <Love />
+          <TitleSegment
+            color="#8ac926"
+            type="code"
+          >
+            code
+          </TitleSegment>
+          <TitleSegment
+            color="#2e84d1"
+            type="play"
+          >
+            PLAY
+          </TitleSegment>
+          <TitleSegment
+            color="#fc5053"
+            type="love"
+          >
+            love
+          </TitleSegment>
         </h1>,
         "className": "title",
       },
@@ -95,9 +152,24 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <Code />,
-            <Play />,
-            <Love />,
+            <TitleSegment
+              color="#8ac926"
+              type="code"
+            >
+              code
+            </TitleSegment>,
+            <TitleSegment
+              color="#2e84d1"
+              type="play"
+            >
+              PLAY
+            </TitleSegment>,
+            <TitleSegment
+              color="#fc5053"
+              type="love"
+            >
+              love
+            </TitleSegment>,
           ],
           "className": "title__head",
         },
@@ -107,27 +179,39 @@ ShallowWrapper {
             "instance": null,
             "key": undefined,
             "nodeType": "function",
-            "props": Object {},
+            "props": Object {
+              "children": "code",
+              "color": "#8ac926",
+              "type": "code",
+            },
             "ref": null,
-            "rendered": null,
+            "rendered": "code",
             "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
             "nodeType": "function",
-            "props": Object {},
+            "props": Object {
+              "children": "PLAY",
+              "color": "#2e84d1",
+              "type": "play",
+            },
             "ref": null,
-            "rendered": null,
+            "rendered": "PLAY",
             "type": [Function],
           },
           Object {
             "instance": null,
             "key": undefined,
             "nodeType": "function",
-            "props": Object {},
+            "props": Object {
+              "children": "love",
+              "color": "#fc5053",
+              "type": "love",
+            },
             "ref": null,
-            "rendered": null,
+            "rendered": "love",
             "type": [Function],
           },
         ],
