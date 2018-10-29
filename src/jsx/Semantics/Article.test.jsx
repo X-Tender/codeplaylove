@@ -18,26 +18,26 @@ describe('Article', () => {
 		});
 
 		it('renders props correctly', () => {
-			const articleWithProps = articleWithAllProps.find('article');
+			const article = articleWithAllProps.find('article');
 
-			expect(articleWithProps.hasClass(className)).toBe(true);
-			expect(articleWithProps.hasClass('article--page-grid')).toBe(true);
-			expect(articleWithProps.contains(children)).toBe(true);
+			expect(article.hasClass(className)).toBe(true);
+			expect(article.hasClass('article--page-grid')).toBe(true);
+			expect(article.contains(children)).toBe(true);
 		});
 	});
 
 	describe('with no props', () => {
-		const articleWithAllProps = shallow(<Article />);
+		const articleWithNoProps = shallow(<Article />);
 
 		it('renders correctly', () => {
-			expect(articleWithAllProps).toMatchSnapshot();
+			expect(articleWithNoProps).toMatchSnapshot();
 		});
 
 		it('renders props correctly', () => {
-			const articleWithoutProps = articleWithAllProps.find('article');
+			const article = articleWithNoProps.find('article');
 
-			expect(articleWithoutProps.hasClass('article--page-grid')).toBe(false);
-			expect(articleWithoutProps.children()).toHaveLength(0);
+			expect(article.hasClass('article--page-grid')).toBe(false);
+			expect(article.children()).toHaveLength(0);
 		});
 	});
 });
