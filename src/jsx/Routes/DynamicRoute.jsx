@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class DynamicRoute extends PureComponent {
 	static propTypes = {
 		load: PropTypes.func.isRequired,
-		children: PropTypes.number.isRequired,
+		children: PropTypes.func.isRequired,
 	};
 
 	state = {

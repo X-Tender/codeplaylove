@@ -3,15 +3,31 @@ import { shallow } from 'enzyme';
 import DynamicRoute from './DynamicRoute';
 
 describe('DynamicRoute', () => {
-	const load = () =>
-		new Promise(resolve => {
-			resolve({ default: null });
-		});
 	const children = jest.fn();
 
-	const comp = shallow(<DynamicRoute load={load}>{children}</DynamicRoute>);
+	describe('component not loaded', () => {
+		const loadWithoutComponent = () =>
+			new Promise(resolve => {
+				resolve({ default: null });
+			});
 
-	it('renders correctly', () => {
-		expect(comp).toMatchSnapshot();
+		const comp = shallow(<DynamicRoute load={loadWithoutComponent}>{children}</DynamicRoute>);
+
+		it('renders correctly', () => {
+			expect(comp).toMatchSnapshot();
+		});
+	});
+
+	describe('component loaded', () => {
+		const loadWithComponent = () =>
+			new Promise(resolve => {
+				resolve({ default: <div /> });
+			});
+
+		const comp = shallow(<DynamicRoute load={loadWithComponent}>{children}</DynamicRoute>);
+
+		it('renders correctly', () => {
+			expect(comp).toMatchSnapshot();
+		});
 	});
 });
