@@ -27,11 +27,7 @@ export default (state = initialState, action) => {
 	}
 };
 
-export const getAbout = () => dispatch => {
-	HTTP.get('api/getAbout').then(response => {
-		dispatch({
-			type: ABOUT_GET,
-			payload: response.data,
-		});
-	});
-};
+export const getAbout = () => dispatch =>
+	fetch('api/getAbout')
+		.then(response => response.json())
+		.then(payload => dispatch({ type: ABOUT_GET, payload }));
