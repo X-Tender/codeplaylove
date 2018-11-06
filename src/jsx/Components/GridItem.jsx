@@ -6,10 +6,10 @@ class GridItem extends React.PureComponent {
 		data: PropTypes.shape({
 			source: PropTypes.string.isRequired,
 			text: PropTypes.string.isRequired,
-			image: PropTypes.string.isRequired,
+			image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 			url: PropTypes.string.isRequired,
-			comments: PropTypes.number.isRequired,
-			likes: PropTypes.number.isRequired,
+			comments: PropTypes.number,
+			likes: PropTypes.number,
 		}).isRequired,
 	};
 
