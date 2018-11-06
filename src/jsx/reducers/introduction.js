@@ -3,10 +3,11 @@ import HTTP from 'Utils/HTTP';
 const INTRODUCTION_GET = 'introduction/GET';
 
 const initialState = {
-	copy: null,
+	loaded: false,
+	copy: '',
 	head: '',
-	image: null,
-	punchline: null,
+	image: '',
+	punchline: '',
 	subhead: '',
 };
 
@@ -17,6 +18,7 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				...payload,
+				loaded: true,
 			};
 
 		default:
