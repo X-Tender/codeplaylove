@@ -57,13 +57,13 @@ const App = () => (
 			<>
 				<Navigation />
 				<main>
-					<Route exact path="/" component={Home} />
-					<Route exact path="/feeds" component={Feeds} />
-					<Route exact path="/about" component={About} />
-					<Route exact path="/games" component={Games} />
-					<Route exact path="/imprint" component={Imprint} />
-					<Route exact path="/privacy" component={Privacy} />
-					<Route path="/games/:gameSlug" component={Game} />
+					<Route component={Home} exact path="/" />
+					<Route component={Feeds} exact path="/feeds" />
+					<Route component={About} exact path="/about" />
+					<Route component={Games} exact path="/games" />
+					<Route component={Imprint} exact path="/imprint" />
+					<Route component={Privacy} exact path="/privacy" />
+					<Route component={Game} path="/games/:gameSlug" />
 				</main>
 				<Footer />
 			</>
