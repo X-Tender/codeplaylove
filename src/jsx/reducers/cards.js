@@ -1,8 +1,7 @@
-import HTTP from 'Utils/HTTP';
-
-const CARDS_GET = 'cards/GET';
+export const CARDS_GET = 'cards/GET';
 
 const initialState = {
+	loaded: false,
 	data: [],
 };
 
@@ -12,7 +11,8 @@ export default (state = initialState, action) => {
 		case CARDS_GET:
 			return {
 				...state,
-				...payload,
+				data: payload.data,
+				loaded: true,
 			};
 
 		default:
@@ -20,11 +20,7 @@ export default (state = initialState, action) => {
 	}
 };
 
-export const getCards = () => dispatch => {
-	HTTP.get('api/getCards').then(response => {
-		dispatch({
-			type: CARDS_GET,
-			payload: response.data,
-		});
-	});
-};
+export const getCards = () => dispatch =>
+	fetch('api/getCards')
+		.then(response => response.json())
+		.then(payload => dispatch({ type: CARDS_GET, payload }));
