@@ -11,6 +11,7 @@ import CodePlayLoveCard from './CodePlayLoveCard';
 class CodePlayLoveCards extends PureComponent {
 	static propTypes = {
 		cards: PropTypes.shape({
+			loaded: PropTypes.bool.isRequired,
 			data: PropTypes.array.isRequired,
 		}).isRequired,
 		getCards: PropTypes.func.isRequired,
@@ -19,7 +20,7 @@ class CodePlayLoveCards extends PureComponent {
 	constructor(props) {
 		super(props);
 
-		if (this.props.cards.data.length === 0) this.props.getCards();
+		if (!this.props.cards.loaded) this.props.getCards();
 	}
 
 	render() {
