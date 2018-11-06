@@ -1,5 +1,3 @@
-import HTTP from 'Utils/HTTP';
-
 export const ABOUT_GET = 'about/GET';
 
 const initialState = {
