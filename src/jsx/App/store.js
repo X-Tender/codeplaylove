@@ -18,8 +18,10 @@ if (process.env.NODE_ENV !== 'development') {
 	}
 }
 
-const composedEnhancers = compose(applyMiddleware(...middleware), ...enhancers);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(reducer, composedEnhancers);
+const enhancer = composeEnhancers(applyMiddleware(...middleware));
+
+const store = createStore(reducer, enhancer);
 
 export default store;
