@@ -64,7 +64,7 @@ class Feeds extends React.PureComponent {
 
 const mapStateToProps = ({ feeds }) => ({
 	feeds: feeds.data,
-	loaded: feeds.loaded,
+	isLoaded: feeds.isLoaded,
 	title: feeds.title,
 	header: feeds.header,
 	caption: feeds.caption,
