@@ -18,6 +18,7 @@ class Introduction extends PureComponent {
 			image: PropTypes.string.isRequired,
 			punchline: PropTypes.string.isRequired,
 			subhead: PropTypes.string.isRequired,
+			loaded: PropTypes.bool.isRequired,
 		}).isRequired,
 		getIntroduction: PropTypes.func.isRequired,
 	};
@@ -25,7 +26,7 @@ class Introduction extends PureComponent {
 	constructor(props) {
 		super(props);
 
-		if (this.props.introduction.copy === null) this.props.getIntroduction();
+		if (!this.props.introduction.loaded) this.props.getIntroduction();
 	}
 
 	render() {
