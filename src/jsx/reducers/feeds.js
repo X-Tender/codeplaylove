@@ -1,5 +1,3 @@
-import HTTP from 'Utils/HTTP';
-
 const GET_FEEDS = 'feeds/GET_FEEDS';
 
 const initialState = {
@@ -26,11 +24,7 @@ export default (state = initialState, action) => {
 	}
 };
 
-export const getFeeds = () => dispatch => {
-	HTTP.get('api/getFeedsData').then(response => {
-		dispatch({
-			type: GET_FEEDS,
-			payload: response.data.data,
-		});
-	});
-};
+export const getFeeds = () => dispatch =>
+	fetch('api/getFeedsData')
+		.then(response => response.json())
+		.then(payload => dispatch({ type: GET_FEEDS, payload: payload.data }));
