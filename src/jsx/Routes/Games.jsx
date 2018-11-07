@@ -15,7 +15,7 @@ import A from 'Semantics/A';
 class Games extends React.Component {
 	static propTypes = {
 		games: PropTypes.shape({
-			loaded: PropTypes.bool.isRequired,
+			isLoaded: PropTypes.bool.isRequired,
 			head: PropTypes.string.isRequired,
 			subhead: PropTypes.string.isRequired,
 			copy: PropTypes.string.isRequired,
@@ -28,8 +28,7 @@ class Games extends React.Component {
 
 	constructor(props) {
 		super(props);
-
-		if (!props.games.loaded) props.getGames();
+		if (!props.games.isLoaded) props.getGames();
 	}
 
 	get floppys() {
@@ -41,8 +40,8 @@ class Games extends React.Component {
 	}
 
 	render() {
-		const { loaded, head, subhead, copy, header, caption } = this.props.games;
-		if (!loaded) return null;
+		const { isLoaded, head, subhead, copy, header, caption } = this.props.games;
+		if (!isLoaded) return null;
 
 		return (
 			<>
