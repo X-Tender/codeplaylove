@@ -1,4 +1,4 @@
-const GET_FEEDS = 'feeds/GET_FEEDS';
+export const GET_FEEDS = 'feeds/GET_FEEDS';
 
 const initialState = {
 	isLoaded: false,
