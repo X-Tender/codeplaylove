@@ -1,5 +1,3 @@
-import HTTP from 'Utils/HTTP';
-
 export const IMPRINT_GET = 'imprint/GET';
 
 const initialState = {
