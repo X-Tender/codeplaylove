@@ -1,5 +1,5 @@
 module.exports = {
-	collectCoverageFrom: ['<rootDir>/src/jsx/**/*.{js,jsx}'],
+	collectCoverageFrom: ['<rootDir>/src/jsx/**/*.{js,jsx}', '!<rootDir>/src/jsx/reducers/index.js'],
 	setupFiles: ['<rootDir>/cfg/jest/shim.js', '<rootDir>/cfg/jest/setup.js'],
 	testMatch: ['<rootDir>/src/jsx/**/?(*.)(spec|test).(js|jsx)'],
 	testEnvironment: 'jsdom',
