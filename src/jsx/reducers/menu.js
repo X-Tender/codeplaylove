@@ -1,13 +1,13 @@
 import { LOCATION_CHANGE } from 'react-router-redux/reducer';
 
-const TOGGLE_MENU = 'menu/TOGGLE_MENU';
+export const TOGGLE_MENU = 'menu/TOGGLE_MENU';
 
 const initialState = {
 	isOpen: false,
 };
 
 export default (state = initialState, action) => {
-	const { type, payload } = action;
+	const { type } = action;
 	switch (type) {
 		case TOGGLE_MENU:
 			return { ...state, isOpen: !state.isOpen };
