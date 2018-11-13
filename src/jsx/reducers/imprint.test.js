@@ -1,11 +1,10 @@
-import imprint, { getImprint } from './imprint';
+import imprint, { getImprint, IMPRINT_GET } from './imprint';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
-import { IMPRINT_GET } from './imprint';
 
 const createMockStore = configureMockStore([thunk]);
-const store = createMockStore({ games: {} });
+const store = createMockStore({ imprint: {} });
 
 const mockResponse = {
 	error: 0,
