@@ -1,5 +1,3 @@
-import HTTP from 'Utils/HTTP';
-
 export const PRIVACY_GET = 'privacy/GET';
 
 const initialState = {
@@ -31,11 +29,7 @@ export default (state = initialState, action) => {
 	}
 };
 
-export const getPrivacy = () => dispatch => {
-	HTTP.get('api/getPrivacy').then(response => {
-		dispatch({
-			type: PRIVACY_GET,
-			payload: response.data,
-		});
-	});
-};
+export const getPrivacy = () => dispatch =>
+	fetch('api/getPrivacy')
+		.then(response => response.json())
+		.then(payload => dispatch({ type: PRIVACY_GET, payload: payload.data }));
