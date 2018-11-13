@@ -3,7 +3,6 @@ import { routerReducer } from 'react-router-redux';
 import feeds from './feeds';
 import menu from './menu';
 import skills from './skills';
-import gears from './gears';
 import tools from './tools';
 import introduction from './introduction';
 import cards from './cards';
@@ -20,7 +19,6 @@ export default combineReducers({
 	feeds,
 	menu,
 	skills,
-	gears,
 	tools,
 	introduction,
 	cards,
