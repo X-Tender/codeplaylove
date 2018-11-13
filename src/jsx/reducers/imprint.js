@@ -31,11 +31,7 @@ export default (state = initialState, action) => {
 	}
 };
 
-export const getImprint = () => dispatch => {
-	HTTP.get('api/getImprint').then(response => {
-		dispatch({
-			type: IMPRINT_GET,
-			payload: response.data,
-		});
-	});
-};
+export const getImprint = () => dispatch =>
+	fetch('api/getImprint')
+		.then(response => response.json())
+		.then(payload => dispatch({ type: IMPRINT_GET, payload }));
