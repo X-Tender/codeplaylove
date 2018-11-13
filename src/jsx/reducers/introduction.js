@@ -1,6 +1,4 @@
-import HTTP from 'Utils/HTTP';
-
-const INTRODUCTION_GET = 'introduction/GET';
+export const INTRODUCTION_GET = 'introduction/GET';
 
 const initialState = {
 	loaded: false,
@@ -26,11 +24,7 @@ export default (state = initialState, action) => {
 	}
 };
 
-export const getIntroduction = () => dispatch => {
-	HTTP.get('api/getIntroduction').then(response => {
-		dispatch({
-			type: INTRODUCTION_GET,
-			payload: response.data.data,
-		});
-	});
-};
+export const getIntroduction = () => dispatch =>
+	fetch('api/getIntroduction')
+		.then(response => response.json())
+		.then(payload => dispatch({ type: INTRODUCTION_GET, payload: payload.data }));
