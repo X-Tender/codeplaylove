@@ -21,7 +21,12 @@ class Imprint extends React.Component {
 			header: PropTypes.string.isRequired,
 			caption: PropTypes.string,
 		}).isRequired,
-		credits: PropTypes.string.isRequired,
+		credits: PropTypes.shape({
+			loaded: PropTypes.bool.isRequired,
+			head: PropTypes.string.isRequired,
+			subhead: PropTypes.string.isRequired,
+			copy: PropTypes.string.isRequired,
+		}).isRequired,
 		getImprint: PropTypes.func.isRequired,
 	};
 
