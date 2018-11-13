@@ -1,5 +1,3 @@
-import HTTP from 'Utils/HTTP';
-
 const SOCIAL_LINKS_GET = 'socialLinks/GET';
 
 const initialState = {
@@ -22,11 +20,7 @@ export default (state = initialState, action) => {
 	}
 };
 
-export const getSocialLinks = () => dispatch => {
-	HTTP.get('api/getSocialLinks').then(response => {
-		dispatch({
-			type: SOCIAL_LINKS_GET,
-			payload: response.data,
-		});
-	});
-};
+export const getSocialLinks = () => dispatch =>
+	fetch('api/getSocialLinks')
+		.then(response => response.json())
+		.then(payload => dispatch({ type: SOCIAL_LINKS_GET, payload: payload.data }));
