@@ -1,7 +1,7 @@
 import { ABOUT_GET } from './about';
 
 const initialState = {
-	loaded: false,
+	isLoaded: false,
 	skillset: {},
 };
 
@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				...{ skillset },
-				loaded: true,
+				isLoaded: true,
 			};
 
 		default:
