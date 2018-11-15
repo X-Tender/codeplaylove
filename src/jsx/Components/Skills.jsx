@@ -8,9 +8,9 @@ import Header from 'Components/Header';
 class Skills extends PureComponent {
 	static propTypes = {
 		data: PropTypes.shape({
+			isLoaded: PropTypes.bool.isRequired,
 			skillset: PropTypes.shape({
 				skills: PropTypes.array.isRequired,
-				loaded: PropTypes.bool.isRequired,
 				subhead: PropTypes.string.isRequired,
 				head: PropTypes.string.isRequired,
 			}),
@@ -38,8 +38,9 @@ class Skills extends PureComponent {
 	}
 
 	render() {
-		const { loaded, subhead, head } = this.props.data.skillset;
-		if (!loaded) return null;
+		const { isLoaded } = this.props.data;
+		const { subhead, head } = this.props.data.skillset;
+		if (!isLoaded) return null;
 
 		return (
 			<Section className="skills">
