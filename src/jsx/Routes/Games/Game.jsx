@@ -16,11 +16,11 @@ import Images from './Images';
 class Game extends React.Component {
 	static propTypes = {
 		data: PropTypes.shape({
-			loaded: PropTypes.bool.isRequired,
-			header: PropTypes.string.isRequired,
-			name: PropTypes.number.isRequired,
-			youtube: PropTypes.string.isRequired,
-			copy: PropTypes.string.isRequired,
+			isLoaded: PropTypes.bool.isRequired,
+			header: PropTypes.string,
+			name: PropTypes.string,
+			youtube: PropTypes.string,
+			copy: PropTypes.string,
 			ratio: PropTypes.string,
 			images: PropTypes.array,
 		}).isRequired,
@@ -30,15 +30,15 @@ class Game extends React.Component {
 	constructor(props) {
 		super(props);
 
-		if (!this.props.data.loaded) {
+		if (!this.props.data.isLoaded) {
 			this.props.getGames();
 		}
 	}
 
 	render() {
-		const { loaded, header, name, images, youtube, ratio, copy } = this.props.data;
+		const { isLoaded, header, name, images, youtube, ratio, copy } = this.props.data;
 
-		if (!loaded) return null;
+		if (!isLoaded) return null;
 
 		return (
 			<>
@@ -73,7 +73,9 @@ class Game extends React.Component {
 
 const mapStateToProps = ({ games }, ownProps) => {
 	const { gameSlug } = ownProps.match.params;
-	return { data: { loaded: games.loaded, ...games.gameList.find(game => game.slug === gameSlug) } };
+	return {
+		data: { isLoaded: games.isLoaded, ...games.gameList.find(game => game.slug === gameSlug) },
+	};
 };
 
 export default connect(
