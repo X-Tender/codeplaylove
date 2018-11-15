@@ -176,7 +176,7 @@ describe('skills reducer', () => {
 
 	const reducerResult = {
 		skillset: { ...payload.skillset },
-		loaded: true,
+		isLoaded: true,
 	};
 
 	it('fetches and sets the about data', () => {
