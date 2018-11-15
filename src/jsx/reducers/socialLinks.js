@@ -1,4 +1,4 @@
-const SOCIAL_LINKS_GET = 'socialLinks/GET';
+export const SOCIAL_LINKS_GET = 'socialLinks/GET';
 
 const initialState = {
 	loaded: false,
@@ -10,9 +10,8 @@ export default (state = initialState, action) => {
 	switch (type) {
 		case SOCIAL_LINKS_GET:
 			return {
-				...state,
 				loaded: true,
-				...payload,
+				data: [...payload.data],
 			};
 
 		default:
@@ -23,4 +22,4 @@ export default (state = initialState, action) => {
 export const getSocialLinks = () => dispatch =>
 	fetch('api/getSocialLinks')
 		.then(response => response.json())
-		.then(payload => dispatch({ type: SOCIAL_LINKS_GET, payload: payload.data }));
+		.then(payload => dispatch({ type: SOCIAL_LINKS_GET, payload }));
