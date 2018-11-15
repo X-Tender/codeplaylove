@@ -10,7 +10,7 @@ const settings = {
 	devHost: 'http://www.codeplaylove.io',
 	devPath: '',
 	entry: {
-		bundle: entryWithHMR(['@babel/polyfill', './Index.jsx']),
+		bundle: entryWithHMR(['@babel/polyfill', './index.jsx']),
 	},
 	rules: [
 		{
