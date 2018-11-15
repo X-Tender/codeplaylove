@@ -11,7 +11,6 @@ export default (state = initialState, action) => {
 	switch (type) {
 		case ABOUT_GET:
 			return {
-				...state,
 				...{ toolset },
 				loaded: true,
 			};
