@@ -13,14 +13,9 @@ export class Burger extends Component {
 		isOpen: false,
 	};
 
-	constructor(props) {
-		super(props);
-		this.onMenuButtonClick = ::this.onMenuButtonClick;
-	}
-
-	onMenuButtonClick() {
+	onMenuButtonClick = () => {
 		this.props.toggleMenu();
-	}
+	};
 
 	render() {
 		const classes = `burger ${this.props.isOpen ? 'isOpen' : ''}`;
@@ -34,15 +29,9 @@ export class Burger extends Component {
 	}
 }
 
-const mapStateToProps = ({ menu }) => ({
-	isOpen: menu.isOpen,
-});
-
-const mapDispatchToProps = {
-	toggleMenu,
-};
+const mapStateToProps = ({ menu: { isOpen } }) => ({ isOpen });
 
 export default connect(
 	mapStateToProps,
-	mapDispatchToProps
+	{ toggleMenu }
 )(Burger);
