@@ -42,8 +42,6 @@ class DetailedIntroduction extends PureComponent {
 	}
 }
 
-const mapStateToProps = ({ detailedIntroduction }) => ({
-	data: detailedIntroduction,
-});
+const mapStateToProps = ({ detailedIntroduction: data }) => ({ data });
 
 export default connect(mapStateToProps)(DetailedIntroduction);
