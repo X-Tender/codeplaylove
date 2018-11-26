@@ -62,8 +62,6 @@ class Uses extends Component {
 	}
 }
 
-const mapStateToProps = ({ tools }) => ({
-	data: tools,
-});
+const mapStateToProps = ({ tools: data }) => ({ data });
 
 export default connect(mapStateToProps)(Uses);
