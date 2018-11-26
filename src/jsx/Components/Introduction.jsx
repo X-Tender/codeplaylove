@@ -83,9 +83,7 @@ class Introduction extends PureComponent {
 	}
 }
 
-const mapStateToProps = ({ introduction }) => ({
-	introduction,
-});
+const mapStateToProps = ({ introduction }) => ({ introduction });
 
 export default connect(
 	mapStateToProps,
