@@ -13,10 +13,6 @@ class GridItem extends React.PureComponent {
 		}).isRequired,
 	};
 
-	constructor(props) {
-		super(props);
-	}
-
 	getHead() {
 		const { source } = this.props.data;
 
