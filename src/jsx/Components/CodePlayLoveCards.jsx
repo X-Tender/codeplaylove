@@ -26,17 +26,19 @@ class CodePlayLoveCards extends PureComponent {
 	render() {
 		const cardsData = this.props.cards.data;
 
-		const cards = cardsData.sort((a, b) => a.sort - b.sort).map(({ id, title, copy, style }) => (
-			<CodePlayLoveCard key={id} style={style} title={title}>
-				{copy &&
-					convert(copy, {
-						transform: {
-							p: P,
-							a: A,
-						},
-					})}
-			</CodePlayLoveCard>
-		));
+		const cards = cardsData
+			.sort((a, b) => a.sort - b.sort)
+			.map(({ id, title, copy, style }) => (
+				<CodePlayLoveCard key={id} style={style} title={title}>
+					{copy &&
+						convert(copy, {
+							transform: {
+								p: P,
+								a: A,
+							},
+						})}
+				</CodePlayLoveCard>
+			));
 
 		return (
 			<Section className="code-play-love-cards">
@@ -46,9 +48,7 @@ class CodePlayLoveCards extends PureComponent {
 	}
 }
 
-const mapStateToProps = ({ cards }) => ({
-	cards,
-});
+const mapStateToProps = ({ cards }) => ({ cards });
 
 export default connect(
 	mapStateToProps,
