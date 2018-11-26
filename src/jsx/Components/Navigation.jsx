@@ -42,8 +42,6 @@ class Navigation extends Component {
 	}
 }
 
-const mapStateToProps = ({ menu }) => ({
-	isOpen: menu.isOpen,
-});
+const mapStateToProps = ({ menu: { isOpen } }) => ({ isOpen });
 
 export default connect(mapStateToProps)(Navigation);
