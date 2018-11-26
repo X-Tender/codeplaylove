@@ -4,7 +4,7 @@ exports[`Burger renders correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Burger
-    isOpen={false}
+    isOpen={true}
     toggleMenu={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {
@@ -31,7 +31,7 @@ ShallowWrapper {
           className="burger__line burger__line--bottom"
         />,
       ],
-      "className": "burger ",
+      "className": "burger isOpen",
       "onClick": [Function],
       "title": "Menu",
       "type": "button",
@@ -91,7 +91,7 @@ ShallowWrapper {
             className="burger__line burger__line--bottom"
           />,
         ],
-        "className": "burger ",
+        "className": "burger isOpen",
         "onClick": [Function],
         "title": "Menu",
         "type": "button",
