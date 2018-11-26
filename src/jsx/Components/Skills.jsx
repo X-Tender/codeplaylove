@@ -53,8 +53,6 @@ class Skills extends PureComponent {
 	}
 }
 
-const mapStateToProps = ({ skills }) => ({
-	data: skills,
-});
+const mapStateToProps = ({ skills: data }) => ({ data });
 
 export default connect(mapStateToProps)(Skills);
