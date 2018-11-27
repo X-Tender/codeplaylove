@@ -8,7 +8,7 @@ import P from 'Semantics/P';
 import A from 'Semantics/A';
 import CodePlayLoveCard from './CodePlayLoveCard';
 
-class CodePlayLoveCards extends PureComponent {
+export class CodePlayLoveCards extends PureComponent {
 	static propTypes = {
 		cards: PropTypes.shape({
 			loaded: PropTypes.bool.isRequired,
