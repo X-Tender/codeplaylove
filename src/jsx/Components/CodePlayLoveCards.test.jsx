@@ -3,17 +3,16 @@ import { shallow, mount } from 'enzyme';
 import { CodePlayLoveCards } from './CodePlayLoveCards';
 
 describe('CodePlayLoveCards', () => {
-	const getCards = jest.fn();
+	let getCards = jest.fn();
 
-	const cards = {
-		loaded: false,
-		data: [],
-	};
-
-	const props = {
+	let props = {
 		getCards,
-		cards,
+		cards: {
+			loaded: false,
+			data: [],
+		},
 	};
+
 	let cplCards = shallow(<CodePlayLoveCards {...props} />);
 
 	it('renders correctly', () => {
@@ -22,11 +21,26 @@ describe('CodePlayLoveCards', () => {
 
 	describe('when mounted', () => {
 		beforeEach(() => {
-			cplCards = mount(<CodePlayLoveCards {...props} />);
+			getCards = jest.fn();
+
+			props = {
+				getCards,
+				cards: {
+					loaded: false,
+					data: [],
+				},
+			};
 		});
 
 		it('dispatches the `getCards()` method when mounted and no cards loaded', () => {
+			cplCards = mount(<CodePlayLoveCards {...props} />);
 			expect(getCards).toHaveBeenCalled();
+		});
+
+		it("doesn't dispatches the `getCards()` method when mounted and cards are loaded", () => {
+			props.cards.loaded = true;
+			cplCards = mount(<CodePlayLoveCards {...props} />);
+			expect(getCards).not.toHaveBeenCalled();
 		});
 	});
 });
