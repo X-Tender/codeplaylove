@@ -25,4 +25,5 @@ module.exports = {
 	moduleDirectories: ['node_modules', '<rootDir>/src/jsx/'],
 	moduleNameMapper: {},
 	moduleFileExtensions: ['js', 'jsx'],
+	snapshotSerializers: ['enzyme-to-json/serializer'],
 };
