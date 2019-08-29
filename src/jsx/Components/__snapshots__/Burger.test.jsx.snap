@@ -1,156 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Burger renders correctly 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Burger
-    isOpen={true}
-    toggleMenu={[MockFunction]}
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": Array [
-        <span
-          className="burger__line burger__line--top"
-        />,
-        <span
-          className="burger__line burger__line--center"
-        />,
-        <span
-          className="burger__line burger__line--bottom"
-        />,
-      ],
-      "className": "burger isOpen",
-      "onClick": [Function],
-      "title": "Menu",
-      "type": "button",
-    },
-    "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "className": "burger__line burger__line--top",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "span",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "className": "burger__line burger__line--center",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "span",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "className": "burger__line burger__line--bottom",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": "span",
-      },
-    ],
-    "type": "button",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <span
-            className="burger__line burger__line--top"
-          />,
-          <span
-            className="burger__line burger__line--center"
-          />,
-          <span
-            className="burger__line burger__line--bottom"
-          />,
-        ],
-        "className": "burger isOpen",
-        "onClick": [Function],
-        "title": "Menu",
-        "type": "button",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "className": "burger__line burger__line--top",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "span",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "className": "burger__line burger__line--center",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "span",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "className": "burger__line burger__line--bottom",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": "span",
-        },
-      ],
-      "type": "button",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
+<button
+  className="burger isOpen"
+  onClick={[Function]}
+  title="Menu"
+  type="button"
+>
+  <span
+    className="burger__line burger__line--top"
+  />
+  <span
+    className="burger__line burger__line--center"
+  />
+  <span
+    className="burger__line burger__line--bottom"
+  />
+</button>
 `;

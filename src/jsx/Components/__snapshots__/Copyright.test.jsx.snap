@@ -1,205 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Copyright renders correctly 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Copyright />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": Array [
-        "© ",
-        2018,
-        " – ",
-        <span
-          className="copyright__name"
-        >
-          Paul Kamma
-        </span>,
-        " –",
-        " ",
-        <Link
-          className="hasUnderline"
-          replace={false}
-          to="/imprint"
-        >
-          Imprint
-        </Link>,
-        " ",
-        <Link
-          className="hasUnderline"
-          replace={false}
-          to="/privacy"
-        >
-          Privacy policy
-        </Link>,
-      ],
-      "className": "copyright",
-    },
-    "ref": null,
-    "rendered": Array [
-      "© ",
-      2018,
-      " – ",
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Paul Kamma",
-          "className": "copyright__name",
-        },
-        "ref": null,
-        "rendered": "Paul Kamma",
-        "type": "span",
-      },
-      " –",
-      " ",
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": "Imprint",
-          "className": "hasUnderline",
-          "replace": false,
-          "to": "/imprint",
-        },
-        "ref": null,
-        "rendered": "Imprint",
-        "type": [Function],
-      },
-      " ",
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": "Privacy policy",
-          "className": "hasUnderline",
-          "replace": false,
-          "to": "/privacy",
-        },
-        "ref": null,
-        "rendered": "Privacy policy",
-        "type": [Function],
-      },
-    ],
-    "type": "p",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          "© ",
-          2018,
-          " – ",
-          <span
-            className="copyright__name"
-          >
-            Paul Kamma
-          </span>,
-          " –",
-          " ",
-          <Link
-            className="hasUnderline"
-            replace={false}
-            to="/imprint"
-          >
-            Imprint
-          </Link>,
-          " ",
-          <Link
-            className="hasUnderline"
-            replace={false}
-            to="/privacy"
-          >
-            Privacy policy
-          </Link>,
-        ],
-        "className": "copyright",
-      },
-      "ref": null,
-      "rendered": Array [
-        "© ",
-        2018,
-        " – ",
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Paul Kamma",
-            "className": "copyright__name",
-          },
-          "ref": null,
-          "rendered": "Paul Kamma",
-          "type": "span",
-        },
-        " –",
-        " ",
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": "Imprint",
-            "className": "hasUnderline",
-            "replace": false,
-            "to": "/imprint",
-          },
-          "ref": null,
-          "rendered": "Imprint",
-          "type": [Function],
-        },
-        " ",
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "children": "Privacy policy",
-            "className": "hasUnderline",
-            "replace": false,
-            "to": "/privacy",
-          },
-          "ref": null,
-          "rendered": "Privacy policy",
-          "type": [Function],
-        },
-      ],
-      "type": "p",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
+<p
+  className="copyright"
+>
+  © 
+  2019
+   – 
+  <span
+    className="copyright__name"
+  >
+    Paul Kamma
+  </span>
+   –
+   
+  <Link
+    className="hasUnderline"
+    replace={false}
+    to="/imprint"
+  >
+    Imprint
+  </Link>
+   
+  <Link
+    className="hasUnderline"
+    replace={false}
+    to="/privacy"
+  >
+    Privacy policy
+  </Link>
+</p>
 `;

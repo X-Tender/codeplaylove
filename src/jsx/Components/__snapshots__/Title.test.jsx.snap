@@ -1,241 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Title renders correctly 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Title />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": <h1
-        className="title__head"
-      >
-        <TitleSegment
-          color="#8ac926"
-          type="code"
-        >
-          code
-        </TitleSegment>
-        <TitleSegment
-          color="#2e84d1"
-          type="play"
-        >
-          PLAY
-        </TitleSegment>
-        <TitleSegment
-          color="#fc5053"
-          type="love"
-        >
-          love
-        </TitleSegment>
-      </h1>,
-      "className": "title",
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <TitleSegment
-            color="#8ac926"
-            type="code"
-          >
-            code
-          </TitleSegment>,
-          <TitleSegment
-            color="#2e84d1"
-            type="play"
-          >
-            PLAY
-          </TitleSegment>,
-          <TitleSegment
-            color="#fc5053"
-            type="love"
-          >
-            love
-          </TitleSegment>,
-        ],
-        "className": "title__head",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": "code",
-            "color": "#8ac926",
-            "type": "code",
-          },
-          "ref": null,
-          "rendered": "code",
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": "PLAY",
-            "color": "#2e84d1",
-            "type": "play",
-          },
-          "ref": null,
-          "rendered": "PLAY",
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "function",
-          "props": Object {
-            "children": "love",
-            "color": "#fc5053",
-            "type": "love",
-          },
-          "ref": null,
-          "rendered": "love",
-          "type": [Function],
-        },
-      ],
-      "type": "h1",
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <h1
-          className="title__head"
-        >
-          <TitleSegment
-            color="#8ac926"
-            type="code"
-          >
-            code
-          </TitleSegment>
-          <TitleSegment
-            color="#2e84d1"
-            type="play"
-          >
-            PLAY
-          </TitleSegment>
-          <TitleSegment
-            color="#fc5053"
-            type="love"
-          >
-            love
-          </TitleSegment>
-        </h1>,
-        "className": "title",
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <TitleSegment
-              color="#8ac926"
-              type="code"
-            >
-              code
-            </TitleSegment>,
-            <TitleSegment
-              color="#2e84d1"
-              type="play"
-            >
-              PLAY
-            </TitleSegment>,
-            <TitleSegment
-              color="#fc5053"
-              type="love"
-            >
-              love
-            </TitleSegment>,
-          ],
-          "className": "title__head",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "children": "code",
-              "color": "#8ac926",
-              "type": "code",
-            },
-            "ref": null,
-            "rendered": "code",
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "children": "PLAY",
-              "color": "#2e84d1",
-              "type": "play",
-            },
-            "ref": null,
-            "rendered": "PLAY",
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "children": "love",
-              "color": "#fc5053",
-              "type": "love",
-            },
-            "ref": null,
-            "rendered": "love",
-            "type": [Function],
-          },
-        ],
-        "type": "h1",
-      },
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
+<div
+  className="title"
+>
+  <h1
+    className="title__head"
+  >
+    <TitleSegment
+      color="#8ac926"
+      type="code"
+    >
+      code
+    </TitleSegment>
+    <TitleSegment
+      color="#2e84d1"
+      type="play"
+    >
+      PLAY
+    </TitleSegment>
+    <TitleSegment
+      color="#fc5053"
+      type="love"
+    >
+      love
+    </TitleSegment>
+  </h1>
+</div>
 `;
