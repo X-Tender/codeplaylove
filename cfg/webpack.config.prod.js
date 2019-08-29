@@ -3,7 +3,7 @@ const path = require('path');
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpackSettings = require('./webpack.settings.js');
-const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const { entry, rules } = webpackSettings;
 
@@ -15,7 +15,11 @@ const plugins = [
 		'process.env.BABEL_ENV': JSON.stringify('production'),
 	}),
 
-	new WebpackCleanupPlugin(),
+	new CleanWebpackPlugin({
+		root: path.join(__dirname, '..', 'public', 'assets', 'js'),
+		exclude: ['vendor'],
+		verbose: true,
+	}),
 ];
 
 module.exports = {

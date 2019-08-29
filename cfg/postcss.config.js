@@ -1,7 +1,4 @@
 const svgoSettings = require('./svgo.config.json');
-const fs = require('fs');
-const babelrc = JSON.parse(fs.readFileSync('.babelrc', 'utf8'));
-const browsers = babelrc.presets[0][1].targets.browsers;
 
 const settings = ctx => ({
 	parser: 'postcss-scss',
@@ -53,9 +50,7 @@ const settings = ctx => ({
 		'postcss-initial': {},
 		'postcss-input-style': {},
 		'postcss-easings': {},
-		autoprefixer: {
-			browsers,
-		},
+		autoprefixer: {},
 		'postcss-svgo': svgoSettings,
 		cssnano:
 			ctx.env === 'production' ?
@@ -63,7 +58,6 @@ const settings = ctx => ({
 						filterPlugins: false,
 						safe: true,
 						mergeRules: false,
-						browsers,
 						svgo: false,
 						discardComments: {
 							removeAll: true,

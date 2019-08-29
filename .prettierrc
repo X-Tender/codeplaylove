@@ -7,7 +7,7 @@
 	"bracketSpacing": true,
 	"jsxBracketSameLine": false,
 	"semi": true,
-	"parser": "babylon",
+	"parser": "babel",
 	"overrides": [
 		{
 			"files": [".prettierrc", ".eslintrc"],

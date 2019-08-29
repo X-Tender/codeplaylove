@@ -3,11 +3,9 @@
 		[
 			"@babel/preset-env",
 			{
-				"targets": {
-					"browsers":["Edge >= 13", "Firefox ESR", "safari >= 12", "Chrome >= 70", "ChromeAndroid >= 60", "last 1 iOS versions"]
-				},
 				"modules": false,
-				"useBuiltIns": "usage"
+				"useBuiltIns": "entry",
+				"corejs": "3.0.0"
 			}
 		],
 		"@babel/preset-react"

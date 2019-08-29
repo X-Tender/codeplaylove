@@ -277,15 +277,6 @@
 		"new-parens": 1,
 		"semi": [1, "always"],
 		"quotes": 0,
-		"operator-linebreak": [
-			1,
-			"after",
-			{
-				"overrides": {
-					"?": "after"
-				}
-			}
-		],
 		"operator-assignment": [1, "always"],
 		"quote-props": [1, "as-needed"],
 		"no-lonely-if": 1,
