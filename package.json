@@ -115,7 +115,7 @@
     "regenerator-runtime": "^0.12.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-middleware": "^3.7.0",
     "webpack-hot-middleware": "^2.25.0",
     "webpack-stream": "^5.2.1",
